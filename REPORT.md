@@ -124,7 +124,7 @@ Reviews and interviews combined (40 sources). The top three are close, so read t
 - *Paying does not feel worth it* (13 of 40). There is no paywall.
 - **The gap:** none of the ten Q1 interviewees was a carer, so Q1 supports the mechanisms but not directly the customer's need. Two carers (below) then confirmed it, but two is a small sample.
 
-**Carer interviews** [fill in: first names, ages, cities, method and dates]. Question: how do you find out how your parent is doing, and would you use a WhatsApp-style message with a daily summary?
+**Carer interviews.** Carer 1: Yash, 26, Candolim, WhatsApp, 31 October 2026. Carer 2: [fill in: first name, age, city, method, date]. Question: how do you find out how your parent is doing, and would you use a WhatsApp-style message with a daily summary?
 - **Carer 1:** "I would definitely use it. A consolidated summary is much better than pinging them three times a day. My main concern is false alarms: if my parent just forgets to send the update because they are busy or taking a nap, I don't want to panic thinking something is wrong."
 - **Carer 2:** "Yes, the daily summary is perfect. My concern is the adoption curve. If the interface isn't exactly like a normal chat, or if they have to leave their actual WhatsApp to click a web link every day, they will likely stop using it after the first week."
 
