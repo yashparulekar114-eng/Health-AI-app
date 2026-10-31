@@ -13,8 +13,62 @@
 - **Vaghefi & Tulu (2019):** users judge an app's usefulness and their own persistence toward the goal, then abandon, limit, switch or continue.
 - **Droid Life (24 Aug 2022), "MyFitnessPal puts barcode scanner behind premium paywall"** (https://www.droid-life.com/2022/08/24/myfitnesspal-puts-barcode-scanner-behind-premium-paywall/): a free feature moved behind a subscription from 1 Oct 2022.
 
-### Review evidence (STUDENT TO ADD)
-> Table of 30+ one/two-star reviews: app | stars | date | exact quote | reason tag. Paste them to me and I will tag and count them. Pattern seen in third-party summaries that must be **checked against your own reviews** before being used: paywalls after free use (MyFitnessPal barcode scanner, HealthifyMe "subscription value"), poor support or refunds, inaccurate calorie data, coaches changing or being unavailable, crashes. I have *not* verified these against the primary review pages.
+### Review evidence: 30 one- and two-star reviews, 3 apps
+
+**How collected, and its limits.** Reviews were gathered with an AI assistant from public Google Play archives (Chrome-Stats, AppBrain) and Trustpilot, 10 per app (links in References). The assistant gave **paraphrased summaries, not verbatim quotes**; I have not been able to confirm each one against the original page. [STUDENT: open the Chrome-Stats links, check at least 5 reviews per app and replace their summaries with exact quotes.] These are selected negative reviews, not a representative sample, and reviewers' ages are unknown. Each review can carry up to three tags, so counts add up to more than 30.
+
+| # | App | ★ | Date | What the reviewer said (paraphrased) | Tags |
+|---|---|---|---|---|---|
+| 1 | HealthifyMe | 1 | 15 Oct 2026 | Pressured to buy a subscription; unsatisfactory exchange with a representative | Pay, Sup |
+| 2 | HealthifyMe | 1 | 15 Oct 2026 | Diet suggestions repetitive and unappealing; the AI did not adapt when given instructions | Gen |
+| 3 | HealthifyMe | 2 | 15 Oct 2026 | Calorie tracking inaccurate even for packaged foods; hard to correct entries | Acc, Fric |
+| 4 | HealthifyMe | 1 | 15 Oct 2026 | Paid programme lacked personalised measurements and guidance; unhappy with refund offered | Gen, Sup |
+| 5 | HealthifyMe | 1 | 14 Oct 2026 | Coaching follow-ups stopped, diet plan not delivered, refund less than expected | Sup |
+| 6 | HealthifyMe | 1 | 12 Oct 2026 | Paid AI assistant could not follow the user's existing diet plan; kept repeating unsuitable foods | Gen |
+| 7 | HealthifyMe | 1 | 8 Oct 2026 | App slow; food-photo tracking did not work | Tech, Acc |
+| 8 | HealthifyMe | 1 | 25 Sep 2026 | Technical problems blocked promised services after payment | Tech, Pay |
+| 9 | HealthifyMe | 1 | 25 Sep 2026 | Meal plans generic; refund hard to get | Gen, Sup |
+| 10 | HealthifyMe | 1 | 25 Aug 2026 | Unhappy with premium diet plan; refund support unresponsive | Pay, Sup |
+| 11 | MyFitnessPal | 1 | 16 Oct 2026 | New interface needs too many taps; simple daily meal/macro overview gone | Fric |
+| 12 | MyFitnessPal | 2 | 16 Oct 2026 | After update, per-meal protein/carb/fat totals no longer visible without opening entries | Fric |
+| 13 | MyFitnessPal | 1 | 15 Oct 2026 | Long-term user: logging, copying meals and checking nutrition got harder | Fric |
+| 14 | MyFitnessPal | 1 | 15 Oct 2026 | Barcode scanning should not need a paid subscription | Pay |
+| 15 | MyFitnessPal | 1 | 15 Oct 2026 | Update moved previously free features behind a paywall; considering alternatives | Pay |
+| 16 | MyFitnessPal | 1 | 15 Oct 2026 | Removal of per-meal macro summaries made it less useful for goals | Fric |
+| 17 | MyFitnessPal | 1 | 15 Oct 2026 | Found notifications distressing and inappropriate | Notif |
+| 18 | MyFitnessPal | 1 | 15 Oct 2026 | Redesign made copying previous meals complicated; nutrition info removed from main screen | Fric |
+| 19 | MyFitnessPal | 1 | 15 Oct 2026 | Setup errors; objected to barcode scanning being paid-only | Pay, Tech |
+| 20 | MyFitnessPal | 1 | 19 Oct 2026 | After ~10 years switched to Cronometer: unpopular redesign, dissatisfied with company's response to feedback | Fric, Sup |
+| 21 | Fitbit | 1 | 10 Oct 2026 | Excessive monitoring permissions and high battery use | Priv |
+| 22 | Fitbit | 1 | 10 Oct 2026 | After update, exercise data stopped syncing to Lose It | Tech |
+| 23 | Fitbit | 1 | 10 Oct 2026 | Frequent disconnections; new limits on connecting other apps | Tech |
+| 24 | Fitbit | 1 | 10 Oct 2026 | Steps miscounted during workouts; support could not fix it | Acc, Sup |
+| 25 | Fitbit | 1 | 10 Oct 2026 | Nutrition tracking described as inadequate | Acc |
+| 26 | Fitbit | 1 | 10 Oct 2026 | App repeatedly lost connection to device; considering Garmin | Tech |
+| 27 | Fitbit | 1 | 10 Oct 2026 | Redesign made editing activities hard; lost previous statistics | Fric |
+| 28 | Fitbit | 1 | 18 Sep 2026 | Charge 6: sync failures, missing sleep data, less intuitive interface | Tech, Fric |
+| 29 | Fitbit | 1 | 23 Sep 2026 | Unreliable step counts, silent-alarm sync problems, unnecessary complexity in new app | Acc, Tech, Fric |
+| 30 | Fitbit | 1 | 23 Sep 2026 | Updated sleep tracking inaccurate; doubts about usefulness of sleep scores | Acc |
+
+**Tag counts (reviews mentioning each theme, out of 30)**
+
+| Theme | Tag | Reviews | Share |
+|---|---|---|---|
+| Does not work or cannot be trusted (bugs, sync, wrong numbers) | Tech + Acc | 12 | 40% |
+| Paid, got little, nobody helped (paywall, refunds, support) | Pay + Sup | 11 | 37% |
+| Simple daily use got harder (redesign, extra taps, removed views) | Fric | 10 | 33% |
+| Generic plan, or the AI did not adapt | Gen | 4 | 13% |
+| Notifications | Notif | 1 | 3% |
+| Privacy / battery | Priv | 1 | 3% |
+| Too many ads | (none) | 0 | 0% |
+
+**Class guesses tested against these reviews**
+- **H1 Too complex:** *partly.* The complaint is not "too many features" but that simple things (copy a meal, see a daily total) became harder after updates (10 of 30).
+- **H2 Too expensive:** *reframed.* The pain is paying and getting little back (generic plans, missing coaching, hard refunds), and features moving behind a paywall (11 of 30). Price alone is rarely the complaint.
+- **H3 Too many ads:** *not supported.* 0 of 30.
+- **H4 Too wordy:** *not tested by these reviews* (0 mentions); keep it as a design rule for our own app.
+- **New finding:** 4 reviews on HealthifyMe say its AI/diet plan was generic or ignored instructions. AI that does not adapt is itself a reason to quit, which matters for Q3.
+- **Gap in this evidence:** nobody says "I forgot" or "I lost motivation". Low-star reviewers are people still engaged enough to complain, so the quiet majority who simply drift away are missing. The interviews below must cover this.
 
 ### Interviews (STUDENT TO ADD)
 > 3+ people who tried a health app and stopped: who (e.g. "friend, 24, Pune"), which app, why they stopped, in their own words. Ask: (1) Which app, and how long did you use it? (2) What was the last time you opened it? (3) What made you stop? (4) What would have kept you?
@@ -111,7 +165,9 @@ Screenshots (English and Hinglish): ![Dad's message](docs/screens/1-papa-message
 
 1. Kidman et al. (2024), JMIR 26, e56897: https://www.jmir.org/2024/1/e56897
 2. Droid Life (2022), MyFitnessPal barcode scanner paywall: https://www.droid-life.com/2022/08/24/myfitnesspal-puts-barcode-scanner-behind-premium-paywall/
-3. [Add more as used]
+3. Chrome-Stats, Google Play review archives for HealthifyMe, MyFitnessPal and Fitbit: https://chrome-stats.com/d/com.healthifyme.basic/reviews , https://chrome-stats.com/d/com.myfitnesspal.android/reviews , https://chrome-stats.com/d/com.fitbit.FitbitMobile/reviews
+4. Trustpilot, HealthifyMe and MyFitnessPal review pages: https://www.trustpilot.com/review/www.healthifyme.com , https://www.trustpilot.com/review/www.myfitnesspal.com
+5. AppBrain, Fitbit Google Play reviews (as listed by the assistant).
 2. Anthropic API documentation (https://docs.anthropic.com), used for the optional live endpoint.
 3. Class Discussion Notes: Health AI App, MAI-594 (2026).
 
@@ -129,4 +185,5 @@ Screenshots (English and Hinglish): ![Dad's message](docs/screens/1-papa-message
 
 | Tool used | What it was used for | How I checked its output |
 |---|---|---|
+| ChatGPT (or similar assistant) | Gathered and paraphrased the 30 low-star reviews in Q1 | Not yet independently checked: [STUDENT: spot-check reviews against Chrome-Stats and say so here] |
 | Claude Code | Proposed the product direction, wrote the parser, UI, tests and the draft of this report | Ran the 10-case test suite; it found a negation bug that was fixed; viewed the app in a browser; red-flag path tested by hand. [Edit: say what *you* reviewed and changed.] |
