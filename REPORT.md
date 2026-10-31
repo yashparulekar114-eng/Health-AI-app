@@ -199,6 +199,7 @@
 | N02 | Proactive nudge draft | Build now | Time-of-day check-in message for the child to send. |
 | N03 | Red-flag rule layer | Build now | Safety that does not depend on a model. |
 | N04 | English / Hinglish toggle | Build now | Parents and children may prefer different languages; Goa users mix both. |
+| N06 | One-tap quick log ("Took my tablet", "Walked 30 min", "A glass of water", a typical meal, "Missed my tablet") | Build now | My own design decision, not user-test feedback: typing is the main cost of daily use (14 of 40), and an older parent may find it hard. Presets go through the same parser as typed text. To be checked in the user test (Q5). |
 | N05 | "Remember regular meals" | Later | Interview 6 asked for it; needs a stored history and tests. |
 
 **The core experience.** *First two minutes:* open the link → Papa's tab: one big box, a mic and example chips → type or say "2 idli aur chai, 30 min walk" → instant "Likh liya ✔" confirmation, or a single question if something is unclear. The child opens "Today": a three-line summary, bars and a suggested nudge. *Normal day:* Papa sends 2-3 lines; the child glances at the summary once in the evening and sends a suggested nudge when something is missing.

@@ -7,6 +7,8 @@
 - **Live app:** https://kalji-ats-1725.vercel.app
 - **Report:** [REPORT.md](REPORT.md)
 
+**Quick log:** big one-tap buttons for the most common updates, so a parent need not type.
+
 **Languages:** English by default, with a Hinglish toggle at the top of the page.
 
 ## How to run / deploy

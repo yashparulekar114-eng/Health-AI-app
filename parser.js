@@ -144,7 +144,7 @@
 
     if (walkMentioned(t) && !out.walk_min) { out.unclear.push('Walk mentioned but no duration. How many minutes?'); out.unclear_codes.push('walk'); }
     if (out.meds.length && out.meds[0].status === 'unclear') { out.unclear.push('Medicine mentioned. Was it taken or missed?'); out.unclear_codes.push('med'); }
-    if (/(khana|khaya|khayi|lunch|dinner|nashta|breakfast|naashta|ate)/.test(t) && !out.meals.length)
+    if (/\b(khana|khaya|khayi|lunch|dinner|nashta|breakfast|naashta|ate)\b/.test(t) && !out.meals.length)
       { out.unclear.push('Ate something, but I did not recognise the dish. What was it?'); out.unclear_codes.push('dish'); }
     if (!out.meals.length && !out.water_ml && !out.walk_min && !out.meds.length && !out.symptoms.length && !out.red_flag && !out.unclear.length)
       { out.unclear.push('I could not find food, water, a walk, medicine or a symptom in that message.'); out.unclear_codes.push('nothing'); }

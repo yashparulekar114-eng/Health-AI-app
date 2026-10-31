@@ -38,3 +38,8 @@ a{color:var(--teal)}
 .lang{display:flex;gap:.4rem;margin:.2rem 0 .6rem}
 .lang button{font-size:.9rem;padding:.3rem .8rem;border:1px solid var(--line);background:#fff;border-radius:99px;color:var(--ink)}
 .lang button[aria-pressed=true]{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+.qh{font-size:1.1rem;margin:1rem 0 .4rem;color:var(--mut)}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+button.q{font-size:1.15rem;padding:1rem .6rem;min-height:64px;background:#fff;color:var(--ink);border:2px solid var(--teal);text-align:center}
+button.q:active{background:#e8f4f2}

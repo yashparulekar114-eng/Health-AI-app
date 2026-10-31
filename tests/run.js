@@ -12,6 +12,7 @@ for (const c of cases) {
   if (e.meds && (!r.meds[0] || r.meds[0].status !== e.meds)) errs.push('meds ' + JSON.stringify(r.meds));
   (e.symptoms || []).forEach(s => { if (!r.symptoms.includes(s)) errs.push('missing symptom ' + s); });
   if (!!r.red_flag !== e.red) errs.push('red_flag=' + r.red_flag);
+  if (e.noUnclear && r.unclear.length) errs.push('unexpected question: ' + r.unclear[0]);
   if (e.unclearHas && !r.unclear.join(' ').includes(e.unclearHas)) errs.push('no clarifying question');
   console.log((errs.length ? 'FAIL ' : 'PASS ') + c.id + '  ' + JSON.stringify(c.in) + (errs.length ? '  -> ' + errs.join('; ') : ''));
   if (!errs.length) pass++;

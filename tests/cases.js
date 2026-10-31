@@ -15,5 +15,8 @@ module.exports = [
   { id:13, in:'I forgot my BP tablet', exp:{ meds:'missed', red:false } },
   { id:14, in:'I have chest pain', exp:{ red:true } },
   { id:15, in:'I did not eat rice, only curd and a banana', exp:{ foods:['Curd (katori)','Banana'], red:false } },
-  { id:16, in:'I had a thali for lunch', exp:{ unclearHas:'dish', red:false } }
+  { id:16, in:'I had a thali for lunch', exp:{ unclearHas:'dish', red:false } },
+  { id:17, in:'I drank 1 glass of water', exp:{ water:250, red:false, noUnclear:true } },
+  { id:18, in:'goli li', exp:{ meds:'taken', red:false } },
+  { id:19, in:'2 roti dal sabzi khayi', exp:{ foods:['Roti','Dal (katori)','Sabzi (katori)'], qty:{ 'Roti':2, 'Dal (katori)':1 }, red:false } }
 ];

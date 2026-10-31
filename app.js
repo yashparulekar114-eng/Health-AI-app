@@ -12,7 +12,8 @@
       notice: 'Kalji is not medical advice. It does not diagnose or prescribe. All data here is made up. In an emergency call <b>108</b>.',
       sub: 'Dad sends one message. You get his day in three lines.',
       tabPapa: "Dad's message", tabMe: 'Today (for you)',
-      prompt: 'What did you eat, how far did you walk, did you take your medicine? Just type or say it.',
+      prompt: 'Tap what you did today. One tap is enough.', prompt2: 'Or type or say anything else:', quickH: 'Quick log',
+      quick: [['💊 Took my tablet','I took my tablet'],['🚶 Walked 30 min','I walked 30 min'],['💧 A glass of water','I drank 1 glass of water'],['🍳 2 idli and tea','2 idli and tea'],['🍚 Roti, dal, sabzi','2 roti, dal and sabzi'],['⚠️ Missed my tablet','I forgot my tablet']],
       ph: 'e.g. 2 idli and tea for breakfast, walked 30 min, took my tablet',
       mic: '🎤 Speak', send: 'Send', today: "Dad's day so far",
       hMeals: 'Meals', hWater: 'Water', hWalk: 'Walk', hMed: 'Medicine', hFeel: 'How he feels',
@@ -35,7 +36,8 @@
       notice: 'Kalji medical advice nahi hai. Yeh diagnose ya dawai prescribe nahi karta. Yahan ka saara data made-up hai. Emergency me <b>108</b> call karo.',
       sub: 'Papa ek message bhejte hain. Aapko unka din teen lines me mil jata hai.',
       tabPapa: 'Papa ka message', tabMe: 'Aaj (aapke liye)',
-      prompt: 'Kya khaya, kitna chale, goli li? Bas likh do ya bol do.',
+      prompt: 'Aaj kya kiya, bas tap karo. Ek tap kaafi hai.', prompt2: 'Ya kuch aur likho ya bolo:', quickH: 'Jaldi log karo',
+      quick: [['💊 Goli li','goli li'],['🚶 30 min walk','30 min walk kiya'],['💧 Ek glass pani','1 glass pani piya'],['🍳 2 idli aur chai','2 idli aur chai'],['🍚 Roti dal sabzi','2 roti dal sabzi khayi'],['⚠️ Goli bhool gaye','goli bhool gaye']],
       ph: 'jaise: subah 2 idli aur chai, 30 min walk, goli li',
       mic: '🎤 Bolo', send: 'Bhejo', today: 'Papa ka aaj ka din abhi tak',
       hMeals: 'Khana', hWater: 'Pani', hWalk: 'Walk', hMed: 'Dawai', hFeel: 'Tabiyat',
@@ -63,6 +65,8 @@
     Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'), function (el) { var v = tr(el.getAttribute('data-i18n')); if (el.hasAttribute('data-html')) el.innerHTML = v; else el.textContent = v; });
     Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-ph]'), function (el) { el.placeholder = tr(el.getAttribute('data-i18n-ph')); });
     $('lang-en').setAttribute('aria-pressed', LANG === 'en'); $('lang-hi').setAttribute('aria-pressed', LANG === 'hi');
+    var qk = $('quick'); qk.innerHTML = '';
+    tr('quick').forEach(function (x) { var b = document.createElement('button'); b.type = 'button'; b.className = 'q'; b.textContent = x[0]; b.onclick = function () { send(x[1]); }; qk.appendChild(b); });
     var c = document.querySelector('.chips'); c.innerHTML = '';
     tr('chips').forEach(function (x) { var b = document.createElement('button'); b.type = 'button'; b.textContent = x; b.onclick = function () { $('msg').value = x; $('msg').focus(); }; c.appendChild(b); });
     if (SR) { /* mic language */ }
@@ -135,13 +139,13 @@
     if (r.unclear.length) h += '<div class="reply"><div class="q">' + esc(question(r)) + '</div></div>';
     $('reply').innerHTML = h;
   }
-  function send() {
-    var text = $('msg').value.trim(); if (!text) return;
+  function send(preset) {
+    var text = (typeof preset === 'string' ? preset : $('msg').value).trim(); if (!text) return;
     $('send').disabled = true;
     analyse(text).then(function (r) {
       var t = today(); r.text = text; r.at = istParts().hour + ':' + String(istParts().minute).padStart(2, '0');
       if (r.meals.length || r.water_ml || r.walk_min || r.meds.length || r.symptoms.length || r.red_flag) { t.day.entries.push(r); save(t.all); }
-      showReply(r); $('msg').value = ''; setMode(); render(); $('send').disabled = false;
+      showReply(r); if (typeof preset !== 'string') $('msg').value = ''; setMode(); render(); $('send').disabled = false;
     });
   }
 
@@ -187,7 +191,7 @@
   }
   $('tab-papa').onclick = function () { tab('papa'); };
   $('tab-me').onclick = function () { tab('me'); };
-  $('send').onclick = send;
+  $('send').onclick = function () { send(); };
   $('msg').addEventListener('keydown', function (e) { if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) send(); });
 
   if (!SR) { $('mic').hidden = true; } else {
