@@ -11,7 +11,7 @@
 <div class="notice" role="note" data-i18n="notice" data-html></div>
 <div class="app">
   <header class="top">
-    <div class="brand"><h1>Kalji</h1><span class="deva">कळजी</span></div>
+    <div class="brand"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></span><h1>Kalji</h1><span class="deva">कळजी</span></div>
     <div class="lang" role="group" aria-label="Language"><button id="lang-en" type="button">English</button><button id="lang-hg" type="button">Hinglish</button><button id="lang-hi" type="button">हिन्दी</button></div>
   </header>
 
@@ -21,6 +21,7 @@
       <p class="hi" data-i18n="sub"></p>
       <p class="big" data-i18n="prompt"></p>
     </div>
+    <div id="reply" aria-live="polite"></div>
     <div id="quick" class="tiles"></div>
 
     <div class="card composer">
@@ -32,12 +33,13 @@
       </div>
       <div class="chips" aria-label="Try an example"></div>
     </div>
-    <div id="reply" aria-live="polite"></div>
+    <div class="card recent"><div class="rh"><h3 data-i18n="recentH"></h3><button id="undo" class="undo" type="button" data-i18n="undo"></button></div><ul id="recent" class="plain"></ul></div>
   </section>
 
   <section id="view-me" hidden>
     <div class="hero">
-      <h2 class="hero-title" data-i18n="today"></h2>
+      <p class="date" id="date"></p>
+      <h2 class="hero-title"><span id="greet"></span> · <span data-i18n="today"></span></h2>
       <div class="ringrow">
         <div class="ring">
           <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="bg" cx="60" cy="60" r="52"/><circle id="ring-arc" class="fg" cx="60" cy="60" r="52" stroke-dasharray="0 327" transform="rotate(-90 60 60)"/></svg>
@@ -51,6 +53,7 @@
       </div>
     </div>
 
+    <div id="status" class="status" role="status"></div>
     <div class="card summary"><ul id="summary"></ul></div>
     <div class="card nudge" id="nudge"></div>
 
@@ -72,8 +75,8 @@
   </main>
 
   <nav class="tabbar" role="tablist">
-    <button id="tab-papa" role="tab" aria-selected="true"><span class="ic">✍️</span><span data-i18n="tabPapa"></span></button>
-    <button id="tab-me" role="tab" aria-selected="false"><span class="ic">📊</span><span data-i18n="tabMe"></span></button>
+    <button id="tab-papa" role="tab" aria-selected="true"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span data-i18n="tabPapa"></span></button>
+    <button id="tab-me" role="tab" aria-selected="false"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span data-i18n="tabMe"></span></button>
   </nav>
 </div>
 <script src="parser.js"></script>

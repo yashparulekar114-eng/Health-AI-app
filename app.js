@@ -21,6 +21,9 @@
       foot: 'Demo profile (made up): Dad, 68, type 2 diabetes and high blood pressure. Goals: 1.8 L water, 30 min walk, 3 meals, morning medicine. Calories are ranges, not exact. See <a href="REPORT.md">the report</a>.',
       noted: 'Noted ✔ ', fFood: 'food', fWater: 'water', fWalk: 'walk', fMed: 'medicine', taken: 'taken', missed: 'missed',
       uMl: 'ml', uMin: 'min', uKcal: 'kcal',
+      gMorning: 'Good morning', gAfternoon: 'Good afternoon', gEvening: 'Good evening',
+      stOkT: 'On track', stOkS: "Nothing worrying in Dad's updates so far.", stWatchT: 'Keep an eye', stWatchS: 'Something deserves a gentle check-in call.', stRedT: 'Call Dad now', stRedS: 'A warning sign was reported. If you cannot reach him, call 108.', stNoneT: 'No update yet', stNoneS: 'Not an alarm. Dad may be busy or resting.', stNoneBtn: 'Open Log',
+      recentH: 'Logged today', recentNone: 'Nothing yet. Tap a button above.', undo: 'Undo', undone: 'Removed the last entry.',
       alert1: 'This could be serious', alert2: 'See a doctor now or <a href="tel:108">call 108</a>. Kalji is not a doctor, so please do not wait on this.',
       q_walk: 'You mentioned a walk. How many minutes?', q_med: 'You mentioned medicine. Did you take it, or miss it?', q_dish: 'You ate something, but I did not recognise the dish. What was it?', q_nothing: 'I could not find food, water, a walk, medicine or a symptom in that message. Please try again.', q_empty: 'Please type something first.',
       micErr: 'The mic is not working. Please type instead.',
@@ -47,6 +50,9 @@
       foot: 'Demo profile (made-up): Papa, 68, type 2 diabetes aur high BP. Goals: 1.8 L pani, 30 min walk, 3 meals, subah ki dawai. Calories ek range hai, exact nahi. Dekho <a href="REPORT.md">report</a>.',
       noted: 'Likh liya ✔ ', fFood: 'khana', fWater: 'pani', fWalk: 'walk', fMed: 'goli', taken: 'li', missed: 'chhoot gayi',
       uMl: 'ml', uMin: 'min', uKcal: 'kcal',
+      gMorning: 'Suprabhat', gAfternoon: 'Namaste', gEvening: 'Shubh sandhya',
+      stOkT: 'Sab theek', stOkS: 'Papa ke updates me abhi tak koi chinta ki baat nahi.', stWatchT: 'Dhyan rakho', stWatchS: 'Ek chhota sa check-in call banta hai.', stRedT: 'Papa ko abhi call karo', stRedS: 'Warning sign bataya gaya hai. Na lage to 108 call karo.', stNoneT: 'Abhi update nahi', stNoneS: 'Alarm nahi hai. Papa busy ya aaram kar rahe honge.', stNoneBtn: 'Log kholo',
+      recentH: 'Aaj log hua', recentNone: 'Abhi kuch nahi. Upar ka button dabao.', undo: 'Undo', undone: 'Pichhli entry hata di.',
       alert1: 'Yeh serious ho sakta hai', alert2: 'Abhi doctor ko dikhao ya <a href="tel:108">108 call karo</a>. Kalji doctor nahi hai, aur is par wait mat karo.',
       q_walk: 'Walk ki baat ki, kitne minute?', q_med: 'Dawai ki baat ki, li ya chhoot gayi?', q_dish: 'Kuch khaya, par mujhe dish samajh nahi aayi. Kya khaya tha?', q_nothing: 'Is message me khana, pani, walk, dawai ya koi takleef nahi mili. Dobara likho.', q_empty: 'Pehle kuch likho.',
       micErr: 'Mic kaam nahi kar raha. Please type kar do.',
@@ -73,6 +79,9 @@
       foot: 'डेमो प्रोफ़ाइल (काल्पनिक): पापा, 68 वर्ष, टाइप 2 मधुमेह और उच्च रक्तचाप। लक्ष्य: 1.8 लीटर पानी, 30 मिनट टहलना, 3 बार खाना, सुबह की दवाई। कैलोरी एक अनुमान है, सटीक नहीं। देखें <a href="REPORT.md">रिपोर्ट</a>।',
       noted: 'लिख लिया ✔ ', fFood: 'खाना', fWater: 'पानी', fWalk: 'टहलना', fMed: 'दवाई', taken: 'ली', missed: 'छूट गई',
       uMl: 'मिली', uMin: 'मिनट', uKcal: 'कैलोरी',
+      gMorning: 'सुप्रभात', gAfternoon: 'नमस्ते', gEvening: 'शुभ संध्या',
+      stOkT: 'सब ठीक', stOkS: 'पापा के अपडेट में अब तक कोई चिंता की बात नहीं।', stWatchT: 'ध्यान रखें', stWatchS: 'एक छोटा सा हालचाल पूछने वाला कॉल बनता है।', stRedT: 'पापा को अभी कॉल करें', stRedS: 'खतरे का संकेत बताया गया है। न लगे तो 108 पर कॉल करें।', stNoneT: 'अभी कोई अपडेट नहीं', stNoneS: 'यह खतरे की घंटी नहीं है। पापा व्यस्त या आराम में होंगे।', stNoneBtn: 'दर्ज करें खोलें',
+      recentH: 'आज दर्ज हुआ', recentNone: 'अभी कुछ नहीं। ऊपर का बटन दबाइए।', undo: 'वापस लें', undone: 'पिछली प्रविष्टि हटा दी।',
       alert1: 'यह गंभीर हो सकता है', alert2: 'अभी डॉक्टर को दिखाइए या <a href="tel:108">108 पर कॉल करें</a>। कळजी डॉक्टर नहीं है, इसलिए इंतज़ार न करें।',
       q_walk: 'टहलने की बात कही, कितने मिनट?', q_med: 'दवाई की बात कही, ली या छूट गई?', q_dish: 'कुछ खाया, पर मैं व्यंजन समझ नहीं पाया। क्या खाया था?', q_nothing: 'इस संदेश में खाना, पानी, टहलना, दवाई या कोई तकलीफ़ नहीं मिली। फिर से लिखिए।', q_empty: 'पहले कुछ लिखिए।',
       micErr: 'माइक काम नहीं कर रहा। कृपया लिखकर भेजें।',
@@ -118,6 +127,16 @@
     return { date: o.year + '-' + o.month + '-' + o.day, hour: parseInt(o.hour, 10) % 24, minute: parseInt(o.minute, 10) };
   }
 
+  var WD_HG = ['Ravivar', 'Somvar', 'Mangalvar', 'Budhvar', 'Guruvar', 'Shukravar', 'Shanivar'];
+  function dateLine() {
+    var now = new Date(), tz = { timeZone: 'Asia/Kolkata' };
+    if (LANG === 'hi') return new Intl.DateTimeFormat('hi-IN', Object.assign({ weekday: 'long', day: 'numeric', month: 'long' }, tz)).format(now);
+    if (LANG === 'en') return new Intl.DateTimeFormat('en-IN', Object.assign({ weekday: 'long', day: 'numeric', month: 'long' }, tz)).format(now);
+    var wd = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(new Intl.DateTimeFormat('en-US', Object.assign({ weekday: 'short' }, tz)).format(now));
+    return WD_HG[wd] + ', ' + new Intl.DateTimeFormat('en-GB', Object.assign({ day: 'numeric', month: 'short' }, tz)).format(now);
+  }
+  function greeting() { var h = istParts().hour; return tr(h < 12 ? 'gMorning' : h < 17 ? 'gAfternoon' : 'gEvening'); }
+
   // ---- storage (made-up data only, stays in this browser) ----
   var KEY = 'kalji.v1';
   function load() { try { var d = JSON.parse(localStorage.getItem(KEY)) || {}; return d; } catch (e) { return {}; } }
@@ -155,15 +174,16 @@
 
   // ---- Papa's side ----
   function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
-  function ack(r) {
+  function bitsOf(r) {
     var bits = [];
     if (r.meals.length) bits.push(tr('fFood') + ': ' + r.meals.map(function (m) { return esc(nm('food', m.name)); }).join(', '));
     if (r.water_ml) bits.push(tr('fWater') + ': ' + r.water_ml + ' ' + tr('uMl'));
     if (r.walk_min) bits.push(tr('fWalk') + ': ' + r.walk_min + ' ' + tr('uMin'));
     if (r.meds.length && r.meds[0].status !== 'unclear') bits.push(tr('fMed') + ': ' + tr(r.meds[0].status === 'taken' ? 'taken' : 'missed'));
     if (r.symptoms.length) bits.push(esc(r.symptoms.map(symName).join(', ')));
-    return bits.length ? tr('noted') + bits.join(' · ') : '';
+    return bits;
   }
+  function ack(r) { var b = bitsOf(r); return b.length ? tr('noted') + b.join(' · ') : ''; }
   function question(r) {
     var code = (r.unclear_codes || [])[0];
     return code ? tr('q_' + code) : (r.unclear[0] || '');
@@ -175,6 +195,7 @@
     if (a) h += '<div class="reply">' + a + '</div>';
     if (r.unclear.length) h += '<div class="reply"><div class="q">' + esc(question(r)) + '</div></div>';
     $('reply').innerHTML = h;
+    if (h && $('reply').scrollIntoView) $('reply').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
   function send(preset) {
     var text = (typeof preset === 'string' ? preset : $('msg').value).trim(); if (!text) return;
@@ -213,6 +234,15 @@
     s = s.filter(Boolean);
     $('summary').innerHTML = s.map(function (x) { return '<li>' + x + '</li>'; }).join('');
 
+    // traffic-light status for the carer
+    var st = !today().day.entries.length ? 'none' : t.red ? 'red' : watch.length ? 'watch' : 'ok';
+    var ic = { ok: '✓', watch: '!', red: '☎', none: '…' }[st];
+    $('status').className = 'status s-' + st;
+    $('status').innerHTML = '<span class="si">' + ic + '</span><div class="st"><b>' + tr('st' + st.charAt(0).toUpperCase() + st.slice(1) + 'T') + '</b><span>' + tr('st' + st.charAt(0).toUpperCase() + st.slice(1) + 'S') + '</span></div>' + (st === 'none' ? '<button type="button" id="st-go">' + tr('stNoneBtn') + '</button>' : '');
+    if ($('st-go')) $('st-go').onclick = function () { tab('papa'); window.scrollTo(0, 0); };
+    $('date').textContent = dateLine(); $('greet').textContent = greeting();
+    renderRecent();
+
     // proactive nudge: Kalji decides what to ask next, and drafts the message for the child to send
     var q = null;
     if (t.meds === null && ip.hour >= 10) q = tr('n_med');
@@ -224,6 +254,13 @@
     else { n.className = 'card nudge ok'; n.innerHTML = '<h3>' + tr('nudgeT') + '</h3><p>' + tr('nudgeNone') + '</p>'; }
   }
 
+  function renderRecent() {
+    var es = today().day.entries.slice(-5).reverse();
+    $('recent').innerHTML = es.length ? es.map(function (e) { var b = bitsOf(e); return '<li><span class="rt">' + esc(e.at || '') + '</span><span>' + (e.red_flag ? '⚠️ ' + esc(nm('red', e.red_flag)) : esc(b.join(' · '))) + '</span></li>'; }).join('') : '<li class="muted">' + tr('recentNone') + '</li>';
+    $('undo').hidden = !es.length;
+  }
+  function undo() { var t = today(); if (!t.day.entries.length) return; t.day.entries.pop(); save(t.all); render(); $('reply').innerHTML = '<div class="reply">' + tr('undone') + '</div>'; }
+
   // ---- wiring ----
   function tab(which) {
     var papa = which === 'papa';
@@ -234,6 +271,7 @@
   $('tab-papa').onclick = function () { tab('papa'); };
   $('tab-me').onclick = function () { tab('me'); };
   $('send').onclick = function () { send(); };
+  $('undo').onclick = undo;
   $('msg').addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } });
 
   if (!SR) { $('mic').hidden = true; } else {

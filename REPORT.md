@@ -208,6 +208,8 @@
 | N07 | Inside WhatsApp (bot) instead of a web page | Later | Carer 2 expects the parent to stop if it is not like normal chat. Needs the WhatsApp Business API, approval and cost; out of scope for a prototype, but the biggest adoption risk. |
 | N05 | "Remember regular meals" | Later | Interview 6 asked for it; needs a stored history and tests. |
 
+**Design.** The interface follows familiar health-app patterns: a calorie ring, big tile buttons, a bottom tab bar, and a traffic-light status card (On track / Keep an eye / Call now / No update yet) so a carer can read the day at a glance. A confirmation appears right under the header after every tap, the last entry can be undone, and a "Logged today" list shows what was recorded. This visual redesign has not been re-tested with a user.
+
 **The core experience.** *First two minutes:* open the link → Papa's tab: one big box, a mic and example chips → type or say "2 idli aur chai, 30 min walk" → instant "Likh liya ✔" confirmation, or a single question if something is unclear. The child opens "Today": a three-line summary, bars and a suggested nudge. *Normal day:* Papa sends 2-3 lines; the child glances at the summary once in the evening and sends a suggested nudge when something is missing.
 
 Screenshots (English and Hinglish): ![Dad's message](docs/screens/1-papa-message.png) ![Red flag](docs/screens/2-red-flag.png) ![Child's view](docs/screens/3-child-today.png) ![Hinglish](docs/screens/4-hinglish.png)
