@@ -1,6 +1,6 @@
 # Kalji (कळजी)
 
-**[YOUR FULL NAME]** · Roll No. **[ROLL NO]** · MAI-594 Introduction to Vibe Coding · AY 2026–27
+**Yash Parulekar** · Roll No. **PGDMAI-25-16** · MAI-594 Introduction to Vibe Coding · AY 2026–27
 
 > **For working adults whose parent (60+) lives far away or alone: the parent sends one messy line in English or Hinglish ("2 idli and tea, took my tablet, feeling dizzy"), and Kalji turns it into a three-line daily summary, a nudge to send, and an instant red-flag warning.**
 

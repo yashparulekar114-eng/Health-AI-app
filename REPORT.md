@@ -1,6 +1,6 @@
 # Report: Kalji
 
-**[YOUR FULL NAME] · Roll No. [ROLL NO]**
+**Yash Parulekar · Roll No. PGDMAI-25-16**
 
 ## Q1. Why do health apps fail?
 
@@ -119,8 +119,10 @@
 
 ## Q2. Who exactly is your customer?
 
-**Customer:** a working adult in their late 20s to 40s, living and working in a different town or city (or just busy), whose parent aged 60+ lives alone or mostly alone in Goa. The parent has a long-term condition such as type 2 diabetes or high blood pressure, uses WhatsApp every day, and does not use health apps.
-*[STUDENT: replace this with one real person you know or interviewed, with a first name, e.g. "Meera, 31, Pune, whose father, 68, lives alone in Mapusa". The structure below should stay.]*
+**Customer:** a working adult in their late 20s to 40s, living and working away from home (or simply busy all day), whose parent aged 60+ lives alone or mostly alone in Goa. The parent has a long-term condition such as type 2 diabetes or high blood pressure, uses WhatsApp every day, and does not use health apps.
+
+**Composite persona (an illustration built from the evidence, not a real person or interviewee):** "Meera", 31, a software tester in Pune. Her father, 68, lives alone in Mapusa with type 2 diabetes and high blood pressure. She calls every evening, and he says "sab theek". She wants to know whether he ate, walked and took his tablet, without turning the call into an inspection.
+*[STUDENT: if you interview a real carer, replace "Meera" with them, with their permission.]*
 
 **What they are trying to get done:** know, without nagging, whether the parent ate properly, walked, took the medicine and feels fine, and be told early if something is wrong.
 
@@ -230,7 +232,7 @@ Screenshots (English and Hinglish): ![Dad's message](docs/screens/1-papa-message
 2. I have not submitted this work, in whole or in part, for assessment in any other course.
 3. I have used generative AI tools only as permitted by the project brief, and I have disclosed that use below.
 
-**Name:** [ ] · **Roll No.:** [ ] · **Date:** [ ]
+**Name:** Yash Parulekar · **Roll No.:** PGDMAI-25-16 · **Date:** 31 October 2026
 
 **AI-use disclosure**
 
