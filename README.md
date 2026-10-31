@@ -4,7 +4,7 @@
 
 > **For working adults whose parent (60+) lives far away or alone: Papa sends one messy Hinglish line ("2 idli, chai, goli li, thoda chakkar"), and Kalji turns it into a three-line daily summary, a nudge to send, and an instant red-flag warning.**
 
-- **Live app:** [ADD LINK AFTER DEPLOY]
+- **Live app:** https://kalji-ats-1725.vercel.app
 - **Report:** [REPORT.md](REPORT.md)
 
 ## How to run / deploy
