@@ -23,4 +23,4 @@
 Not medical advice. No diagnosis or prescribing. All data is made up and stays in the browser (localStorage). Red-flag words (chest pain, breathlessness, fainting, stroke signs…) trigger a "call 108 / see a doctor" message.
 
 ## Credits
-No third-party libraries or images; icons and illustrations are original SVG drawings. System fonts only. Built with Claude Code; see the AI-use disclosure in the report.
+No third-party libraries or images; the app icon, icons and illustrations are original SVG drawings. System fonts only. Built with Claude Code; see the AI-use disclosure in the report.

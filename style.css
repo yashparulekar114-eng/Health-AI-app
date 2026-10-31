@@ -177,3 +177,7 @@ button.tile .ico.t0{background:#DDF4EC}button.tile .ico.t1{background:#DCEFFA}bu
 button.tile .ico.t3{background:#FFF4DC}button.tile .ico.t4{background:#FFF4DC}button.tile .ico.t5{background:#FBE4E4}
 button.tile{min-height:116px}
 .hero .art{width:160px;height:126px;right:-8px;top:2px}
+
+/* app icon in header: the SVG carries its own rounded square */
+.logo{background:none;width:34px;height:34px;border-radius:0;margin-right:.15rem}
+.logo svg{width:34px;height:34px;display:block}
