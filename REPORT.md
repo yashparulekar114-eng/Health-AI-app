@@ -70,8 +70,19 @@
 - **New finding:** 4 reviews on HealthifyMe say its AI/diet plan was generic or ignored instructions. AI that does not adapt is itself a reason to quit, which matters for Q3.
 - **Gap in this evidence:** nobody says "I forgot" or "I lost motivation". Low-star reviewers are people still engaged enough to complain, so the quiet majority who simply drift away are missing. The interviews below must cover this.
 
-### Interviews (STUDENT TO ADD)
-> 3+ people who tried a health app and stopped: who (e.g. "friend, 24, Pune"), which app, why they stopped, in their own words. Ask: (1) Which app, and how long did you use it? (2) What was the last time you opened it? (3) What made you stop? (4) What would have kept you?
+### Interviews with people who stopped using a health app
+
+*Notes taken in the person's words, lightly trimmed. Names are first names only.*
+
+**Interview 1: Rizwan, 25, [city], asked via [WhatsApp / in person] on [date].** Used HealthifyMe for about 6 months to track calories, meals and weight; last opened it about 2 months ago.
+- *Why he stopped:* "Initially, I found it useful, but after some time, logging every meal became tiring. Some Indian food items also had inaccurate calorie counts, and many useful features required a paid subscription."
+- *What would have kept him:* "I would have continued if food tracking was easier and more accurate, especially for homemade Indian meals. More useful features in the free version and personalised recommendations would have helped too."
+
+**Interview 2:** [STUDENT: name, age, city, app, how long, last opened, why stopped, what would have kept them, in their words]
+
+**Interview 3:** [STUDENT: same]
+
+**What the interviews add to the reviews.** Interview 1 matches all three ranked reasons (untrustworthy numbers for Indian food, paywalled features, daily effort) and adds something the reviews lacked: logging was not a single bad experience but a cost paid every day, until it was not worth it. [Update this paragraph once Interviews 2 and 3 are in.]
 
 **My three most important reasons, ranked:**
 1. **[Reason]**: [evidence + source]
