@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  var GOALS = { water: 1800, walk: 30, meals: 3 };
+  var GOALS = { water: 1800, walk: 30, meals: 3, kcal: 1800 };
   var $ = function (id) { return document.getElementById(id); };
   var P = window.KaljiParser;
   var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -11,7 +11,7 @@
     en: {
       notice: 'Kalji is not medical advice. It does not diagnose or prescribe. All data here is made up. In an emergency call <b>108</b>.',
       sub: 'Dad sends one message. You get his day in three lines.',
-      tabPapa: "Dad's message", tabMe: 'Today (for you)',
+      tabPapa: 'Log', tabMe: 'Today', ringSub: 'kcal so far (estimate)',
       prompt: '👇 Tap a button to log it. No typing needed.', prompt2: 'Or type or say it yourself, then press Send:', quickH: 'Quick log',
       quick: [['💊 Took my tablet','I took my tablet'],['🚶 Walked 30 min','I walked 30 min'],['💧 A glass of water','I drank 1 glass of water'],['🍳 2 idli and tea','2 idli and tea'],['🍚 Roti, dal, sabzi','2 roti, dal and sabzi'],['⚠️ Missed my tablet','I forgot my tablet']],
       ph: 'e.g. 2 idli and tea for breakfast, walked 30 min, took my tablet',
@@ -36,7 +36,7 @@
     hi: {
       notice: 'Kalji medical advice nahi hai. Yeh diagnose ya dawai prescribe nahi karta. Yahan ka saara data made-up hai. Emergency me <b>108</b> call karo.',
       sub: 'Papa ek message bhejte hain. Aapko unka din teen lines me mil jata hai.',
-      tabPapa: 'Papa ka message', tabMe: 'Aaj (aapke liye)',
+      tabPapa: 'Log', tabMe: 'Aaj', ringSub: 'kcal abhi tak (andaza)',
       prompt: '👇 Button dabao, log ho jayega. Likhna nahi padega.', prompt2: 'Ya khud likho ya bolo, phir Bhejo dabao:', quickH: 'Jaldi log karo',
       quick: [['💊 Goli li','goli li'],['🚶 30 min walk','30 min walk kiya'],['💧 Ek glass pani','1 glass pani piya'],['🍳 2 idli aur chai','2 idli aur chai'],['🍚 Roti dal sabzi','2 roti dal sabzi khayi'],['⚠️ Goli bhool gaye','goli bhool gaye']],
       ph: 'jaise: subah 2 idli aur chai, 30 min walk, goli li',
@@ -68,7 +68,7 @@
     Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-ph]'), function (el) { el.placeholder = tr(el.getAttribute('data-i18n-ph')); });
     $('lang-en').setAttribute('aria-pressed', LANG === 'en'); $('lang-hi').setAttribute('aria-pressed', LANG === 'hi');
     var qk = $('quick'); qk.innerHTML = '';
-    tr('quick').forEach(function (x) { var b = document.createElement('button'); b.type = 'button'; b.className = 'q'; b.textContent = x[0]; b.onclick = function () { send(x[1]); }; qk.appendChild(b); });
+    tr('quick').forEach(function (x) { var b = document.createElement('button'); b.type = 'button'; var sp = x[0].indexOf(' '); b.className = 'tile' + (x[0].indexOf('⚠') === 0 ? ' warn' : ''); b.innerHTML = '<span class="ico">' + x[0].slice(0, sp) + '</span><span>' + esc(x[0].slice(sp + 1)) + '</span>'; b.onclick = function () { send(x[1]); }; qk.appendChild(b); });
     var c = document.querySelector('.chips'); c.innerHTML = '';
     tr('chips').forEach(function (x) { var b = document.createElement('button'); b.type = 'button'; b.textContent = x; b.onclick = function () { $('msg').value = x; $('msg').focus(); }; c.appendChild(b); });
     if (SR) { /* mic language */ }
@@ -157,6 +157,9 @@
     var t = totals(today().day), ip = istParts();
     $('meals').innerHTML = t.meals.length ? t.meals.map(function (m) { return '<li>' + esc(m.name) + (m.qty !== 1 ? ' × ' + m.qty : '') + ' <span class="muted">' + m.kcal_low + '–' + m.kcal_high + ' kcal</span>' + m.flags.map(function (f) { return '<span class="tag">' + esc(f) + '</span>'; }).join('') + '</li>'; }).join('') : '<li class="muted">' + tr('nothingYet') + '</li>';
     $('kcal').textContent = t.meals.length ? tr('kcalSoFar', { a: t.lo, b: t.hi }) : '';
+    var mid = Math.round((t.lo + t.hi) / 2), C = 326.7; $('ring-num').textContent = mid; $('ring-sub').textContent = tr('ringSub');
+    $('ring-arc').setAttribute('stroke-dasharray', (Math.min(1, mid / GOALS.kcal) * C).toFixed(1) + ' ' + C);
+    $('st-water').textContent = Math.round(t.water / GOALS.water * 100) + '%'; $('st-walk').textContent = Math.round(t.walk / GOALS.walk * 100) + '%'; $('st-med').textContent = t.meds === 'taken' ? tr('taken') : t.meds === 'missed' ? tr('missed') : '-';
     bar('water-bar', t.water, GOALS.water); $('water-txt').textContent = tr('waterOf', { a: t.water, b: GOALS.water });
     bar('walk-bar', t.walk, GOALS.walk); $('walk-txt').textContent = tr('walkOf', { a: t.walk, b: GOALS.walk });
     $('med-txt').innerHTML = t.meds === 'taken' ? '<span class="ok">' + tr('medTaken') + '</span>' : t.meds === 'missed' ? '<span class="bad">' + tr('medMissed') + '</span>' : '<span class="muted">' + tr('medNone') + '</span>';
@@ -170,8 +173,9 @@
     if (t.meds === 'missed') watch.push(tr('wMed'));
     t.symptoms.forEach(function (x) { watch.push(symName(x)); });
     t.meals.forEach(function (m) { if (m.flags.indexOf('high sugar') >= 0) watch.push(tr('wSweet')); });
-    s.push(watch.length ? '<span class="warn">' + esc(tr('sWatch', { x: watch.filter(function (v, i, a) { return a.indexOf(v) === i; }).join(', ') })) + '</span>' : tr('sOk'));
+    s.push(watch.length ? '<span class="warn">' + esc(tr('sWatch', { x: watch.filter(function (v, i, a) { return a.indexOf(v) === i; }).join(', ') })) + '</span>' : (t.red ? '' : tr('sOk')));
     if (!today().day.entries.length) s = [tr('sNoData')];
+    s = s.filter(Boolean);
     $('summary').innerHTML = s.map(function (x) { return '<li>' + x + '</li>'; }).join('');
 
     // proactive nudge: Kalji decides what to ask next, and drafts the message for the child to send
@@ -181,7 +185,7 @@
     else if (t.water < GOALS.water / 2 && ip.hour >= 15) q = tr('n_water');
     else if (!t.walk && ip.hour >= 17) q = tr('n_walk');
     var n = $('nudge');
-    if (q) { n.className = 'card nudge'; n.innerHTML = '<h3>' + tr('nudgeH', { t: ip.hour + ':' + String(ip.minute).padStart(2, '0') }) + '</h3><p>' + esc(q) + '</p><a class="secondary" style="display:inline-block;padding:.5rem 1rem;border:2px solid var(--teal);border-radius:12px;text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(q) + '">' + tr('nudgeBtn') + '</a>'; }
+    if (q) { n.className = 'card nudge'; n.innerHTML = '<h3>' + tr('nudgeH', { t: ip.hour + ':' + String(ip.minute).padStart(2, '0') }) + '</h3><p>' + esc(q) + '</p><a target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(q) + '">' + tr('nudgeBtn') + '</a>'; }
     else { n.className = 'card nudge ok'; n.innerHTML = '<h3>' + tr('nudgeT') + '</h3><p>' + tr('nudgeNone') + '</p>'; }
   }
 

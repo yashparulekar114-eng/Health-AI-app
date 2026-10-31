@@ -230,6 +230,7 @@ Screenshots (English and Hinglish): ![Dad's message](docs/screens/1-papa-message
 **What I changed (commit "Q5 fixes"):**
 - Send is now a full-width, large button, and pressing Enter sends (Shift+Enter makes a new line).
 - Added a clear instruction above the presets ("Tap a button to log it. No typing needed.") and gave them a filled, raised style so they read as buttons.
+- Afterwards I restyled the whole app to look like a familiar health-app (calorie ring, tile buttons, bottom tab bar, rounded cards), which also makes the one-tap tiles look tappable. This redesign has **not** been re-tested with a user.
 - From the carers' feedback (Q2): with no update yet, the summary now says "No update from Dad yet today. That is not an alarm", instead of the earlier "Nothing to worry about so far", which wrongly implied all was well.
 
 **What this does not show.** One tester ignored the presets, so my own call to build them (Q4, N06) is **not validated**. If a second tester also types, the presets should be cut or redesigned, and typing and voice remain the main path. I have not re-tested the new layout with him. A further limit: the tester used the app on his own; a real parent would send messages over weeks, and I have not tested that.
