@@ -9,13 +9,13 @@
 
 **Quick log:** big one-tap buttons for the most common updates, so a parent need not type.
 
-**Languages:** English by default, with a Hinglish toggle at the top of the page.
+**Languages:** English (default), Hinglish and Hindi (Devanagari), switchable at the top of the page. Everything on screen follows the chosen language: labels, food names, symptoms, warnings, nudges and summaries. The parser understands messages typed or spoken in any of the three.
 
 ## How to run / deploy
 - Static site: open `index.html`, or deploy the repo root to GitHub Pages / Vercel. No install, no sign-up.
 - **Demo mode (default):** a built-in Hinglish parser (`parser.js`) works offline with no key.
 - **Live AI (optional):** on Vercel, set `ANTHROPIC_API_KEY` (and optionally `ANTHROPIC_MODEL`) in project Environment Variables. `api/parse.js` then reads messages with a model. Safety red-flag rules in `parser.js` always run on top. Never commit a key.
-- Tests: `npm test` (16 realistic inputs, English and Hinglish).
+- Tests: `npm test` (26 inputs in English, Hinglish and Hindi).
 
 ## Safety
 Not medical advice. No diagnosis or prescribing. All data is made up and stays in the browser (localStorage). Red-flag words (chest pain, breathlessness, fainting, stroke signs…) trigger a "call 108 / see a doctor" message.

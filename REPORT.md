@@ -174,7 +174,7 @@
 | 9 | thoda ghumne gaye the | Asks "how many minutes?" instead of guessing | Yes |
 | 10 | aaj kuch khaya, thali jaisa tha, bahut tasty | Asks "what was it?" | Yes. Does not invent calories. |
 
-**Language.** The app opens in English; a toggle switches the whole interface, confirmations, alerts and nudges to Hinglish. The parser understands both English and Hinglish input. I added 6 English cases (11-16 in `tests/cases.js`, all passing). Writing them exposed two more bugs that also affected Hinglish, which I fixed: "3 roti, dal" gave dal ×3 (quantity leaked across a comma), and "4 glasses of water" counted 2000 ml (the letter "l" in "dal" was read as a litre unit).
+**Language.** The app opens in English; a switch changes the whole interface, confirmations, alerts and nudges to Hinglish or Hindi (Devanagari). The parser understands English, Hinglish and Hindi input (cases 20-26 in `tests/cases.js` are Hindi). I added 6 English cases (11-16 in `tests/cases.js`, all passing). Writing them exposed two more bugs that also affected Hinglish, which I fixed: "3 roti, dal" gave dal ×3 (quantity leaked across a comma), and "4 glasses of water" counted 2000 ml (the letter "l" in "dal" was read as a litre unit).
 
 > **Add your own failures here.** Only 10 cases written by me, who also wrote the parser, so they are friendly. Before submitting, try 5-10 nastier messages (Marathi/Konkani words, "thoda sa", typos, a photo of a thali) and add the failures honestly. Known gaps: no photo input, a limited food list, quantity words like "thoda/aadha katori" mostly ignored, Marathi/Konkani vocabulary not covered.
 
@@ -203,7 +203,7 @@
 | N01 | English/Hinglish message-to-structure (voice or text) | Build now | The AI core: replaces the logging form. Daily effort is a top reason to quit (14 of 40); interviews 1, 2 and 10 asked to "just message what I ate". |
 | N02 | Proactive nudge draft | Build now | Time-of-day check-in message for the child to send. |
 | N03 | Red-flag rule layer | Build now | Safety that does not depend on a model. |
-| N04 | English / Hinglish toggle | Build now | Parents and children may prefer different languages; Goa users mix both. |
+| N04 | Language switch: English / Hinglish / Hindi | Build now | Parents and children may prefer different languages; Goa users mix them. Every on-screen string, including food names and warnings, follows the chosen language. Marathi and Konkani are not covered (Later). |
 | N06 | One-tap quick log ("Took my tablet", "Walked 30 min", "A glass of water", a typical meal, "Missed my tablet") | Build now | My own design decision, not user-test feedback: typing is the main cost of daily use (14 of 40), and an older parent may find it hard. Presets go through the same parser as typed text. To be checked in the user test (Q5). |
 | N07 | Inside WhatsApp (bot) instead of a web page | Later | Carer 2 expects the parent to stop if it is not like normal chat. Needs the WhatsApp Business API, approval and cost; out of scope for a prototype, but the biggest adoption risk. |
 | N05 | "Remember regular meals" | Later | Interview 6 asked for it; needs a stored history and tests. |

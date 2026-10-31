@@ -128,8 +128,19 @@
     return meds;
   }
 
+  // --- Hindi (Devanagari) -> romanised keywords, so typed or spoken Hindi is understood ---
+  var DV_PHRASES = [['सीने में दर्द','seene me dard'],['सीने में','seene me'],['सांस फूल','saans phool'],['सांस लेने में तकलीफ','saans lene ki taklif'],['सिर दर्द','sar dard'],['पेट दर्द','pet dard'],['वड़ा पाव','vada pav'],['सोल कढ़ी','sol kadhi'],['बोल नहीं पा','bol nahi pa'],['गिर गए','gir gaye'],['गिर गया','gir gaya']];
+  var DV_WORDS = {'रोटी':'roti','चपाती':'chapati','पराठा':'paratha','इडली':'idli','डोसा':'dosa','पोहा':'poha','उपमा':'upma','साबूदाना':'sabudana','चावल':'chawal','दाल':'dal','सब्ज़ी':'sabzi','सब्जी':'sabzi','मछली':'machli','दही':'dahi','अंडा':'anda','अंडे':'ande','केला':'kela','पपीता':'papita','चाय':'chai','बिस्कुट':'biscuit','समोसा':'samosa','पकौड़ा':'pakoda','जलेबी':'jalebi','लड्डू':'ladoo','मिठाई':'mithai','खाया':'khaya','खायी':'khayi','खाई':'khayi','नाश्ता':'nashta','खाना':'khana','पानी':'pani','गिलास':'glass','बोतल':'bottle','लीटर':'litre','गोली':'goli','दवाई':'dawai','दवा':'dawa','टैबलेट':'tablet','ली':'li','लिया':'liya','भूल':'bhool','भूला':'bhool','भूली':'bhool','नहीं':'nahi','टहलने':'ghumne','टहले':'ghumne','टहला':'ghumne','टहली':'ghumne','टहल':'tahal','वॉक':'walk','पैदल':'walk','मिनट':'min','घंटा':'ghanta','घंटे':'ghante','आधा':'aadha','एक':'ek','दो':'do','तीन':'teen','चार':'char','पाँच':'paanch','पांच':'paanch','छह':'chhe','सात':'saat','आठ':'aath','चक्कर':'chakkar','सिरदर्द':'sar dard','कमज़ोरी':'kamzori','कमजोरी':'kamzori','थकान':'thakaan','खांसी':'khansi','खाँसी':'khansi','बुखार':'bukhar','घुटने':'ghutne','उल्टी':'ulti','फूल':'phool','बेहोश':'behosh','बेहोशी':'behoshi','लकवा':'lakwa'};
+  function deva(s) {
+    if (!/[\u0900-\u097F]/.test(s)) return s;
+    s = s.normalize('NFC').replace(/[०-९]/g, function (d) { return '०१२३४५६७८९'.indexOf(d); });
+    DV_PHRASES.forEach(function (pr) { s = s.split(pr[0].normalize('NFC')).join(' ' + pr[1] + ' '); });
+    var map = {}; Object.keys(DV_WORDS).forEach(function (k) { map[k.normalize('NFC')] = DV_WORDS[k]; });
+    return s.split(/(\s+)/).map(function (tok) { var m = tok.match(/^([^\u0900-\u097F]*)([\u0900-\u097F]+)(.*)$/); if (!m) return tok; return (m[1] || '') + (map[m[2]] || m[2]) + (m[3] || ''); }).join('');
+  }
+
   function parse(text) {
-    var raw = (text || '').trim();
+    var raw = deva((text || '').trim());
     var t = lc(raw);
     var out = { meals: [], water_ml: 0, walk_min: 0, meds: [], symptoms: [], red_flag: null, unclear: [], unclear_codes: [], source: 'demo' };
     if (!raw) { out.unclear.push('Empty message.'); out.unclear_codes.push('empty'); return out; }

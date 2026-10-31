@@ -18,5 +18,12 @@ module.exports = [
   { id:16, in:'I had a thali for lunch', exp:{ unclearHas:'dish', red:false } },
   { id:17, in:'I drank 1 glass of water', exp:{ water:250, red:false, noUnclear:true } },
   { id:18, in:'goli li', exp:{ meds:'taken', red:false } },
-  { id:19, in:'2 roti dal sabzi khayi', exp:{ foods:['Roti','Dal (katori)','Sabzi (katori)'], qty:{ 'Roti':2, 'Dal (katori)':1 }, red:false } }
+  { id:19, in:'2 roti dal sabzi khayi', exp:{ foods:['Roti','Dal (katori)','Sabzi (katori)'], qty:{ 'Roti':2, 'Dal (katori)':1 }, red:false } },
+  { id:20, in:'गोली ली', exp:{ meds:'taken', red:false } },
+  { id:21, in:'सुबह 2 इडली और चाय, 30 मिनट टहले', exp:{ foods:['Idli','Chai'], qty:{ 'Idli':2 }, walk:30, red:false } },
+  { id:22, in:'1 गिलास पानी पिया', exp:{ water:250, red:false, noUnclear:true } },
+  { id:23, in:'सीने में दर्द हो रहा है', exp:{ red:true } },
+  { id:24, in:'चक्कर आ रहा है', exp:{ symptoms:['dizziness'], red:false } },
+  { id:25, in:'2 रोटी दाल सब्ज़ी खायी', exp:{ foods:['Roti','Dal (katori)','Sabzi (katori)'], qty:{ 'Roti':2, 'Dal (katori)':1 }, red:false } },
+  { id:26, in:'गोली भूल गए', exp:{ meds:'missed', red:false } }
 ];
