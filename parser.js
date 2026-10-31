@@ -75,7 +75,10 @@
           var cs = Math.max(t.lastIndexOf(',', m.index), t.lastIndexOf('.', m.index), t.lastIndexOf(';', m.index), -1) + 1;
           var ce = t.slice(m.index).search(/[,.;]/); ce = ce < 0 ? t.length : m.index + ce;
           var clause = t.slice(cs, ce);
-          if (/(khaya|khayi|liya|li|piya|ate|had|eat)\s+(nahi|nahin|not)\b|\b(nahi|nahin|didn'?t|did not|skipped?|bina)\s+(\w+\s+)?(khaya|khayi|liya|ate|had|eat)/.test(clause)) continue;
+          // split the clause at 'aur'/'and'/'but' so a negation about one item does not wipe out the others
+          var parts = clause.split(/\b(?:aur|and|but|lekin|par)\b/), seg = clause;
+          for (var pi = 0; pi < parts.length; pi++) if (parts[pi].indexOf(kw) >= 0) { seg = parts[pi]; break; }
+          if (new RegExp("\\b(khaya|khayi|liya|li|piya|ate|had|eat)\\s+(nahi|nahin|not)\\b|\\b(nahi|nahin|didn'?t|did not|skipped?|bina|no|without)\\s+(\\w+\\s+)?(khaya|khayi|liya|ate|had|eat)\\b|\\b(no|without|bina|nahi)\\s+(?!(?:sugar|cheeni|milk|doodh|salt|namak|oil|tel|ghee)\\b)(\\w+\\s+)?" + esc(kw) + "\\b").test(seg)) continue;
           var q = qtyBefore(t, m.index + (m[1] ? 1 : 0));
           if (q === null) q = fd.d;
           if (q <= 0) q = fd.d;

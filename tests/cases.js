@@ -25,5 +25,9 @@ module.exports = [
   { id:23, in:'सीने में दर्द हो रहा है', exp:{ red:true } },
   { id:24, in:'चक्कर आ रहा है', exp:{ symptoms:['dizziness'], red:false } },
   { id:25, in:'2 रोटी दाल सब्ज़ी खायी', exp:{ foods:['Roti','Dal (katori)','Sabzi (katori)'], qty:{ 'Roti':2, 'Dal (katori)':1 }, red:false } },
-  { id:26, in:'गोली भूल गए', exp:{ meds:'missed', red:false } }
+  { id:26, in:'गोली भूल गए', exp:{ meds:'missed', red:false } },
+  { id:27, in:'2 chapati and 1 bowl dal, no rice', exp:{ foods:['Roti','Dal (katori)'], red:false } },
+  { id:28, in:'papa ne sirf dahi khaya aur BP ki goli nahi li', exp:{ foods:['Curd (katori)'], meds:'missed', red:false } },
+  { id:29, in:'rice khaya nahi, sirf dahi aur kela', exp:{ foods:['Curd (katori)','Banana'], red:false } },
+  { id:30, in:'no sugar chai and 2 idli', exp:{ foods:['Chai','Idli'], red:false } }
 ];
