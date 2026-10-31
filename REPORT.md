@@ -4,8 +4,20 @@
 
 ## Q1. Why do health apps fail?
 
-> **TODO (you must do this; I cannot invent evidence).** Brief requires: ≥30 one/two-star reviews across 2-3 apps, ≥3 people who quit an app, ≥2 published sources. Fast route (~40 min): open Play Store / App Store for HealthifyMe, Fitbit/Google Fit, Cult.fit or MyFitnessPal → filter 1-2★ → paste 30 reviews into a table (app, date, quote, tag). Message 3 people (WhatsApp is fine) and ask: "which health app did you stop using, and what made you stop?". Cite two sources (e.g. a research paper on mHealth app attrition, an industry retention report).
-> Hypotheses to test against what you find (class H1-H4, plus mine): **(a)** logging is a chore (typing/searching food, Indian dishes missing); **(b)** paywall after the free trial; **(c)** no one notices when you stop, so no reason to return; **(d)** generic advice that ignores the person; **(e)** ads. Rank your top three by how many reviews/people mention them.
+> **Status: published sources found; reviews and interviews still to be added by the student (see the evidence tables below).**
+
+### Published sources (found by web search; open each link and check the figures before submitting)
+- **Kidman et al. (2024), "When and Why Adults Abandon Lifestyle Behavior and Mental Health Mobile Apps: Scoping Review", *Journal of Medical Internet Research* 26, e56897** (https://www.jmir.org/2024/1/e56897). Reported: a median of about 70% of users stop within 100 days; abandonment is fastest soon after download; most studies report attrition rates without examining why.
+- **Industry data cited in the same review:** about 66% of health apps and 69% of fitness apps are abandoned within 90 days (commercial figures, not peer-reviewed).
+- **Schroé et al. (2022), MyPlan 2.0 physical-activity intervention:** 227 of 473 participants (47.9%) stopped using it, mostly at the start; authors recommend minimal early questionnaires.
+- **Vaghefi & Tulu (2019):** users judge an app's usefulness and their own persistence toward the goal, then abandon, limit, switch or continue.
+- **Droid Life (24 Aug 2022), "MyFitnessPal puts barcode scanner behind premium paywall"** (https://www.droid-life.com/2022/08/24/myfitnesspal-puts-barcode-scanner-behind-premium-paywall/): a free feature moved behind a subscription from 1 Oct 2022.
+
+### Review evidence (STUDENT TO ADD)
+> Table of 30+ one/two-star reviews: app | stars | date | exact quote | reason tag. Paste them to me and I will tag and count them. Pattern seen in third-party summaries that must be **checked against your own reviews** before being used: paywalls after free use (MyFitnessPal barcode scanner, HealthifyMe "subscription value"), poor support or refunds, inaccurate calorie data, coaches changing or being unavailable, crashes. I have *not* verified these against the primary review pages.
+
+### Interviews (STUDENT TO ADD)
+> 3+ people who tried a health app and stopped: who (e.g. "friend, 24, Pune"), which app, why they stopped, in their own words. Ask: (1) Which app, and how long did you use it? (2) What was the last time you opened it? (3) What made you stop? (4) What would have kept you?
 
 **My three most important reasons, ranked:**
 1. **[Reason]**: [evidence + source]
@@ -97,7 +109,9 @@ Screenshots (English and Hinglish): ![Dad's message](docs/screens/1-papa-message
 
 ## References
 
-1. [Add the 2+ published sources used in Q1 here]
+1. Kidman et al. (2024), JMIR 26, e56897: https://www.jmir.org/2024/1/e56897
+2. Droid Life (2022), MyFitnessPal barcode scanner paywall: https://www.droid-life.com/2022/08/24/myfitnesspal-puts-barcode-scanner-behind-premium-paywall/
+3. [Add more as used]
 2. Anthropic API documentation (https://docs.anthropic.com), used for the optional live endpoint.
 3. Class Discussion Notes: Health AI App, MAI-594 (2026).
 
