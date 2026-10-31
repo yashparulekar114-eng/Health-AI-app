@@ -119,18 +119,30 @@
 
 ## Q2. Who exactly is your customer?
 
-> **Replace the example person with a real one** (ideally someone you interviewed), but keep the structure.
+**Customer:** a working adult in their late 20s to 40s, living and working in a different town or city (or just busy), whose parent aged 60+ lives alone or mostly alone in Goa. The parent has a long-term condition such as type 2 diabetes or high blood pressure, uses WhatsApp every day, and does not use health apps.
+*[STUDENT: replace this with one real person you know or interviewed, with a first name, e.g. "Meera, 31, Pune, whose father, 68, lives alone in Mapusa". The structure below should stay.]*
 
-**Customer:** a working adult in their 30s (example: a Pune software tester) whose father, 68, lives alone in Goa, has type 2 diabetes and high BP, and uses WhatsApp but no health apps.
-**Trying to get done:** know, without nagging, whether Papa ate properly, walked, took his medicine, and feels fine, and be told early if something is wrong.
-**Tried, and why it did not work:** calling daily (Papa says "sab theek"), a calorie app (Papa will not type, dishes like sol kadhi and bhakri are missing), a smartwatch (he does not wear it).
+**What they are trying to get done:** know, without nagging, whether the parent ate properly, walked, took the medicine and feels fine, and be told early if something is wrong.
+
+**What they have tried, and why it did not work:**
+- *Phone calls:* the parent says "sab theek", and the call itself becomes a chore on both sides.
+- *A calorie-counting app:* the parent will not type every meal. Interviews 1, 2, 6 and 10 describe exactly this cost of daily logging, even for young, willing users.
+- *A smartwatch or tracker:* interview 3 stopped wearing his, and interview 9 gave up on sync problems; an older parent is less likely to wear one at all.
 
 **Customers I considered and rejected:**
-- *Young adults 15-30 tracking their own fitness*: crowded market, churn is the norm, under-25s cannot pay (class notes). No clear gap for us.
-- *Adults 60+ using the app directly*: right need, but they do not install or maintain apps; the adult child is the one who worries and will pay attention.
-- *(Optional third)* Gym-goers wanting calorie counts: well served by existing apps.
+- *Young people (15-30) tracking their own fitness.* Q1 shows this group quits for the reasons above, and it is the best-evidenced group (nine of my ten interviews). I rejected it because it is the most crowded market (HealthifyMe, MyFitnessPal, Fitbit all target it), churn is the norm, and under-25s have limited ability to pay (class notes). Our answer to "just tell it what you ate" is real but not unique to a younger person, so a carer-focused product has a clearer gap.
+- *Adults over 60 using the app themselves.* The need is real, but they rarely install or maintain apps, and Interview 7 (52) did not want to open an app at all, only to receive "a simple daily message". The adult child is the one who worries and will look at a screen.
+- *Gym-goers counting protein* (interview 6): well served by existing apps, and the product would compete on features, which this project deliberately avoids.
 
-**How this follows from Q1:** [connect to your ranked reasons: e.g. if "logging is a chore" is #1, Papa never logs, he just sends a message; if "no one notices when you stop" is #1, the child is the one who gets the nudge.]
+**How this choice follows from Q1** (and where it does not):
+- *Daily effort is a top reason to quit* (14 of 40). A parent will not log meals, so the design removes logging: one short message in English or Hinglish, and the AI structures it.
+- *Nothing pulls people back* (5 of 10 interviews). Apps wait to be opened. In Kalji the **child** gets a proactive nudge ("Dad, did you take your tablet today?") to send, so the habit is held by the person who cares, not by an app notification the parent ignores.
+- *Numbers cannot be trusted* (15 of 40). So Kalji shows calorie **ranges**, asks one question instead of guessing, and never reports "all fine" when data is missing.
+- *Paying does not feel worth it* (13 of 40). No paywall in the prototype; value comes first.
+- *Interview 7 (Sunil, 52)* asked for exactly the output: "a simple daily message telling me how much I walked and whether I reached my goal".
+- **The gap:** none of my ten interviewees was a carer, so Q1 supports the *mechanisms* (low effort, proactive nudges, ranges, simple output) but not directly the *customer's* need. [STUDENT: close this gap with the two questions below and report the answers; if you cannot, leave this sentence in, because it is accurate.]
+
+**Carer interviews** *(to add)*: [STUDENT: ask 2 people who worry about a parent's health: "How do you find out how your parent is doing day to day? What would make that easier?" and "Would you use an app where your parent just sends a WhatsApp-style message and you get a short daily summary? What worries you about it?" Paste their answers, with first name, age and city.]
 
 ## Q3. What does AI do in my app that ordinary software could not?
 
