@@ -50,6 +50,8 @@
 | 9 | thoda ghumne gaye the | Asks "how many minutes?" instead of guessing | Yes |
 | 10 | aaj kuch khaya, thali jaisa tha, bahut tasty | Asks "what was it?" | Yes. Does not invent calories. |
 
+**Language.** The app opens in English; a toggle switches the whole interface, confirmations, alerts and nudges to Hinglish. The parser understands both English and Hinglish input. I added 6 English cases (11-16 in `tests/cases.js`, all passing). Writing them exposed two more bugs that also affected Hinglish, which I fixed: "3 roti, dal" gave dal ×3 (quantity leaked across a comma), and "4 glasses of water" counted 2000 ml (the letter "l" in "dal" was read as a litre unit).
+
 > **Add your own failures here.** Only 10 cases written by me, who also wrote the parser, so they are friendly. Before submitting, try 5-10 nastier messages (Marathi/Konkani words, "thoda sa", typos, a photo of a thali) and add the failures honestly. Known gaps: no photo input, a limited food list, quantity words like "thoda/aadha katori" mostly ignored, Marathi/Konkani vocabulary not covered.
 
 ## Q4. What I will build, and what I will leave out
@@ -80,7 +82,7 @@
 
 **The core experience.** *First two minutes:* open the link → Papa's tab: one big box, a mic and example chips → type or say "2 idli aur chai, 30 min walk" → instant "Likh liya ✔" confirmation, or a single question if something is unclear. The child opens "Today": a three-line summary, bars and a suggested nudge. *Normal day:* Papa sends 2-3 lines; the child glances at the summary once in the evening and sends a suggested nudge when something is missing.
 
-Screenshots: ![Papa's message](docs/screens/1-papa-message.png) ![Red flag](docs/screens/2-red-flag.png) ![Child's view](docs/screens/3-child-today.png)
+Screenshots (English and Hinglish): ![Dad's message](docs/screens/1-papa-message.png) ![Red flag](docs/screens/2-red-flag.png) ![Child's view](docs/screens/3-child-today.png) ![Hinglish](docs/screens/4-hinglish.png)
 
 **My three hardest calls:** *(my draft reasoning; edit it into your own words and check it against your research)*
 1. **Text/voice message vs. food photo first.** Weighed: the photo demo is impressive, but accuracy on thalis is poor and a wrong number on a diabetic's diet erodes trust. Chose: message first, calorie *ranges*, photo later. *Would change my mind if:* testers say typing is the barrier, or a photo test shows ≤25% error on common dishes.

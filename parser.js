@@ -53,13 +53,14 @@
   function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
   // quantity: a number or number-word immediately before the keyword (within 2 words) or "x2" after
+  var UNITS = /^(katori|katoris|bowl|bowls|plate|plates|piece|pieces|pcs|cup|cups|glass|glasses)$/;
   function qtyBefore(text, idx) {
-    var before = text.slice(Math.max(0, idx - 24), idx).trim().split(/\s+/).slice(-2);
-    for (var i = before.length - 1; i >= 0; i--) {
-      var w = before[i].replace(/[^a-z0-9.]/g, '');
-      if (/^\d+(\.\d+)?$/.test(w)) return parseFloat(w);
-      if (NUM[w] !== undefined) return NUM[w];
-    }
+    // only the clause before the food word; the number must be adjacent (optionally with one unit word between)
+    var seg = text.slice(0, idx), cut = Math.max(seg.lastIndexOf(','), seg.lastIndexOf('.'), seg.lastIndexOf(';'));
+    var w = seg.slice(cut + 1).trim().split(/\s+/).slice(-2).map(function (x) { return x.replace(/[^a-z0-9.]/g, ''); });
+    function val(x) { if (/^\d+(\.\d+)?$/.test(x)) return parseFloat(x); if (NUM[x] !== undefined) return NUM[x]; return null; }
+    if (w.length && val(w[w.length - 1]) !== null) return val(w[w.length - 1]);
+    if (w.length === 2 && UNITS.test(w[1]) && val(w[0]) !== null) return val(w[0]);
     return null;
   }
 
@@ -87,16 +88,17 @@
   }
 
   function parseWater(t) {
-    var ml = 0, m, re = /(\d+(?:\.\d+)?|ek|do|teen|char|paanch|one|two|three|four|five|aadha|half)?\s*(glass|glasses|gilas|glaas|bottle|bottles|litre|liter|ltr|l\b)\s*(?:of\s*)?(?:pani|paani|water)?/g;
-    var hasWaterWord = /pani|paani|water|jal\b/.test(t);
+    var ml = 0, m;
+    var re = /(\d+(?:\.\d+)?|ek|do|teen|char|paanch|one|two|three|four|five|aadha|half)?\s*\b(glass|glasses|gilas|glaas|bottle|bottles|litres?|liters?|ltr)\b\s*(?:of\s*)?(?:pani|paani|water)?/g;
+    var hasWaterWord = /\b(pani|paani|water)\b/.test(t);
     while ((m = re.exec(t))) {
+      if (!m[0].trim()) { re.lastIndex++; continue; }
       var unit = m[2], q = m[1] ? (isNaN(parseFloat(m[1])) ? NUM[m[1]] : parseFloat(m[1])) : 1;
       var tail = t.slice(m.index, m.index + m[0].length + 14);
-      var isWater = /pani|paani|water/.test(tail) || (hasWaterWord && !/chai|tea|doodh|milk|juice|sol kadhi|chaas|lassi/.test(tail));
+      var other = /chai|tea|doodh|milk|juice|sol kadhi|chaas|lassi|coffee/.test(tail);
+      var isWater = /\b(pani|paani|water)\b/.test(tail) || (hasWaterWord && !!m[1] && !other);
       if (!isWater) continue;
-      if (/glass|gilas|glaas/.test(unit)) ml += q * 250;
-      else if (/bottle/.test(unit)) ml += q * 1000;
-      else ml += q * 1000;
+      ml += q * (/glass|gilas|glaas/.test(unit) ? 250 : 1000);
     }
     return ml;
   }
@@ -129,8 +131,8 @@
   function parse(text) {
     var raw = (text || '').trim();
     var t = lc(raw);
-    var out = { meals: [], water_ml: 0, walk_min: 0, meds: [], symptoms: [], red_flag: null, unclear: [], source: 'demo' };
-    if (!raw) { out.unclear.push('Empty message.'); return out; }
+    var out = { meals: [], water_ml: 0, walk_min: 0, meds: [], symptoms: [], red_flag: null, unclear: [], unclear_codes: [], source: 'demo' };
+    if (!raw) { out.unclear.push('Empty message.'); out.unclear_codes.push('empty'); return out; }
 
     for (var i = 0; i < RED.length; i++) if (RED[i][0].test(raw)) { out.red_flag = RED[i][1]; break; }
     SYMPTOMS.forEach(function (s) { if (s[0].test(raw)) out.symptoms.push(s[1]); });
@@ -140,12 +142,12 @@
     out.walk_min = parseWalk(t);
     out.meds = parseMeds(t);
 
-    if (walkMentioned(t) && !out.walk_min) out.unclear.push('Walk mentioned but no duration. How many minutes?');
-    if (out.meds.length && out.meds[0].status === 'unclear') out.unclear.push('Medicine mentioned. Was it taken or missed?');
+    if (walkMentioned(t) && !out.walk_min) { out.unclear.push('Walk mentioned but no duration. How many minutes?'); out.unclear_codes.push('walk'); }
+    if (out.meds.length && out.meds[0].status === 'unclear') { out.unclear.push('Medicine mentioned. Was it taken or missed?'); out.unclear_codes.push('med'); }
     if (/(khana|khaya|khayi|lunch|dinner|nashta|breakfast|naashta|ate)/.test(t) && !out.meals.length)
-      out.unclear.push('Ate something, but I did not recognise the dish. What was it?');
+      { out.unclear.push('Ate something, but I did not recognise the dish. What was it?'); out.unclear_codes.push('dish'); }
     if (!out.meals.length && !out.water_ml && !out.walk_min && !out.meds.length && !out.symptoms.length && !out.red_flag && !out.unclear.length)
-      out.unclear.push('I could not find food, water, a walk, medicine or a symptom in that message.');
+      { out.unclear.push('I could not find food, water, a walk, medicine or a symptom in that message.'); out.unclear_codes.push('nothing'); }
     return out;
   }
 

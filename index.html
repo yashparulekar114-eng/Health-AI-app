@@ -7,49 +7,48 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="notice" role="note">Kalji is not medical advice. It does not diagnose or prescribe. All data here is made up. In an emergency call <b>108</b>.</div>
+<div class="notice" role="note" data-i18n="notice" data-html></div>
 <header>
   <h1>Kalji <span>कळजी</span></h1>
-  <p class="sub">Papa sends one message. You get the day, in three lines.</p>
+  <p class="sub" data-i18n="sub"></p>
+  <div class="lang" role="group" aria-label="Language"><button id="lang-en" type="button">English</button><button id="lang-hi" type="button">Hinglish</button></div>
   <nav role="tablist">
-    <button id="tab-papa" role="tab" aria-selected="true">Papa's message</button>
-    <button id="tab-me" role="tab" aria-selected="false">Today (for you)</button>
+    <button id="tab-papa" role="tab" aria-selected="true" data-i18n="tabPapa"></button>
+    <button id="tab-me" role="tab" aria-selected="false" data-i18n="tabMe"></button>
   </nav>
   <p id="mode" class="mode"></p>
 </header>
 
 <main>
 <section id="view-papa">
-  <label for="msg" class="big">Kya khaya, kitna chale, goli li? Bas likh do ya bol do.</label>
-  <textarea id="msg" rows="4" placeholder="e.g. subah 2 idli aur chai, 30 min walk, goli li"></textarea>
+  <label for="msg" class="big" data-i18n="prompt"></label>
+  <textarea id="msg" rows="4" data-i18n-ph="ph"></textarea>
   <div class="row">
-    <button id="mic" type="button" class="secondary" aria-label="Speak">🎤 Bolo</button>
-    <button id="send" type="button" class="primary">Bhejo</button>
+    <button id="mic" type="button" class="secondary" aria-label="Speak" data-i18n="mic"></button>
+    <button id="send" type="button" class="primary" data-i18n="send"></button>
   </div>
   <div class="chips" aria-label="Try an example"></div>
   <div id="reply" aria-live="polite"></div>
 </section>
 
 <section id="view-me" hidden>
-  <div class="card summary"><h2>Papa's day so far</h2><ul id="summary"></ul></div>
+  <div class="card summary"><h2 data-i18n="today"></h2><ul id="summary"></ul></div>
   <div class="card nudge" id="nudge"></div>
   <div class="grid">
-    <div class="card"><h3>Meals</h3><ul id="meals" class="plain"></ul><p id="kcal" class="muted"></p></div>
-    <div class="card"><h3>Water</h3><div class="bar"><i id="water-bar"></i></div><p id="water-txt" class="muted"></p></div>
-    <div class="card"><h3>Walk</h3><div class="bar"><i id="walk-bar"></i></div><p id="walk-txt" class="muted"></p></div>
-    <div class="card"><h3>Medicine</h3><p id="med-txt"></p></div>
-    <div class="card"><h3>How he feels</h3><p id="sym-txt"></p></div>
+    <div class="card"><h3 data-i18n="hMeals"></h3><ul id="meals" class="plain"></ul><p id="kcal" class="muted"></p></div>
+    <div class="card"><h3 data-i18n="hWater"></h3><div class="bar"><i id="water-bar"></i></div><p id="water-txt" class="muted"></p></div>
+    <div class="card"><h3 data-i18n="hWalk"></h3><div class="bar"><i id="walk-bar"></i></div><p id="walk-txt" class="muted"></p></div>
+    <div class="card"><h3 data-i18n="hMed"></h3><p id="med-txt"></p></div>
+    <div class="card"><h3 data-i18n="hFeel"></h3><p id="sym-txt"></p></div>
   </div>
   <div class="row small">
-    <button id="sample" class="secondary">Load a sample day</button>
-    <button id="clear" class="secondary">Clear today</button>
+    <button id="sample" class="secondary" data-i18n="sample"></button>
+    <button id="clear" class="secondary" data-i18n="clear"></button>
   </div>
 </section>
 </main>
 
-<footer>
-  <p>Demo profile (made up): Papa, 68, type 2 diabetes and high blood pressure. Goals: 1.8 L water, 30 min walk, 3 meals, morning medicine. Calories are ranges, not exact. See <a href="REPORT.md">the report</a>.</p>
-</footer>
+<footer><p data-i18n="foot" data-html></p></footer>
 <script src="parser.js"></script>
 <script src="app.js"></script>
 </body>

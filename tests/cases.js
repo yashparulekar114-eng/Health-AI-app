@@ -1,7 +1,7 @@
 // 10 realistic inputs for the Q3 table. Each has the expectations we check.
 module.exports = [
   { id:1, in:'aaj nashta me 2 idli aur chai li, sugar wali', exp:{ foods:['Idli','Chai'], red:false } },
-  { id:2, in:'dopahar ko 3 roti, dal, sabzi aur thoda chawal khaya', exp:{ foods:['Roti','Dal (katori)','Sabzi (katori)','Rice (katori)'], red:false } },
+  { id:2, in:'dopahar ko 3 roti, dal, sabzi aur thoda chawal khaya', exp:{ foods:['Roti','Dal (katori)','Sabzi (katori)','Rice (katori)'], qty:{ 'Roti':3, 'Dal (katori)':1 }, red:false } },
   { id:3, in:'subah 30 min walk kiya, 4 glass pani piya', exp:{ walk:30, water:1000, red:false } },
   { id:4, in:'BP ki goli bhool gaye aaj', exp:{ meds:'missed', red:false } },
   { id:5, in:'papa ko chakkar aa raha hai aur kamzori hai', exp:{ symptoms:['dizziness','weakness / tiredness'], red:false } },
@@ -9,5 +9,11 @@ module.exports = [
   { id:7, in:'jalebi aur samosa khaya shaadi me', exp:{ foods:['Sweet / mithai','Fried snack'], red:false } },
   { id:8, in:'rice khaya nahi, sirf dahi aur kela', exp:{ foods:['Curd (katori)','Banana'], red:false } },
   { id:9, in:'thoda ghumne gaye the', exp:{ unclearHas:'minutes', red:false } },
-  { id:10, in:'aaj kuch khaya, thali jaisa tha, bahut tasty', exp:{ unclearHas:'dish', red:false } }
+  { id:10, in:'aaj kuch khaya, thali jaisa tha, bahut tasty', exp:{ unclearHas:'dish', red:false } },
+  { id:11, in:'2 idli and tea for breakfast, walked 30 min, took my tablet', exp:{ foods:['Idli','Chai'], qty:{ 'Idli':2 }, walk:30, meds:'taken', red:false } },
+  { id:12, in:'3 roti, dal and sabzi, 4 glasses of water', exp:{ foods:['Roti','Dal (katori)','Sabzi (katori)'], qty:{ 'Roti':3, 'Dal (katori)':1 }, water:1000, red:false } },
+  { id:13, in:'I forgot my BP tablet', exp:{ meds:'missed', red:false } },
+  { id:14, in:'I have chest pain', exp:{ red:true } },
+  { id:15, in:'I did not eat rice, only curd and a banana', exp:{ foods:['Curd (katori)','Banana'], red:false } },
+  { id:16, in:'I had a thali for lunch', exp:{ unclearHas:'dish', red:false } }
 ];

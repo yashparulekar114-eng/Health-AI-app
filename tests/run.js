@@ -6,6 +6,7 @@ for (const c of cases) {
   const names = r.meals.map(m => m.name);
   (e.foods || []).forEach(f => { if (!names.includes(f)) errs.push('missing food ' + f); });
   if (e.foods && !e.foods.length === false && names.length !== e.foods.length) errs.push('extra foods: ' + names.join(','));
+  if (e.qty) Object.keys(e.qty).forEach(k => { const m = r.meals.find(x => x.name === k); if (!m || m.qty !== e.qty[k]) errs.push('qty ' + k + '=' + (m && m.qty)); });
   if (e.walk !== undefined && r.walk_min !== e.walk) errs.push('walk ' + r.walk_min);
   if (e.water !== undefined && r.water_ml !== e.water) errs.push('water ' + r.water_ml);
   if (e.meds && (!r.meds[0] || r.meds[0].status !== e.meds)) errs.push('meds ' + JSON.stringify(r.meds));

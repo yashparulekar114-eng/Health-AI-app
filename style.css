@@ -34,3 +34,7 @@ ul{margin:.2rem 0;padding-left:1.2rem}ul.plain{list-style:none;padding:0}
 .ok{color:var(--ok)}.warn{color:var(--amber)}.bad{color:var(--red)}
 footer{color:var(--mut);font-size:.85rem;padding-bottom:2rem;margin-top:1.5rem}
 a{color:var(--teal)}
+
+.lang{display:flex;gap:.4rem;margin:.2rem 0 .6rem}
+.lang button{font-size:.9rem;padding:.3rem .8rem;border:1px solid var(--line);background:#fff;border-radius:99px;color:var(--ink)}
+.lang button[aria-pressed=true]{background:var(--teal);color:#fff;border-color:var(--teal)}
