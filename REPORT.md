@@ -177,9 +177,9 @@
 
 | ID | Feature | Build now / Later / Never | Reason |
 |---|---|---|---|
-| F01 | Food photo to calories | Later | Single-photo calorie estimates are unreliable for mixed Indian plates (D06, D11); text/voice covers the need with ranges. |
+| F01 | Food photo to calories | Later | Interview 1 asked for photo logging, but a single photo is unreliable for mixed home-cooked Indian plates (D06, D11; interviews 1 and 10 found homemade food missing). Typed or spoken messages work now, with ranges. |
 | F02 | Profile and goals | Build now (minimal) | Only fixed goals for one made-up parent. No BMI, no reference image. |
-| F03 | Activity tracking | Build now (minimal) | Walk minutes from the message; no sensors needed. |
+| F03 | Activity tracking | Build now (minimal) | Walk minutes from the message. Interviews 3 and 9 quit because trackers had to be worn and synced; Interview 7 wanted only "how much I walked". |
 | F04 | Diet plan | Never | Prescribing a calorie-deficit plan for a diabetic parent is medical territory. |
 | F05 | Progress tracker | Build now | The daily summary and bars. Fasting tracker and product upsell: Never (conflict of interest; supplements). |
 | F06 | Sleep tracking | Later | Needs a device or reliable self-report; not core. |
@@ -187,24 +187,26 @@
 | F08 | AI health coach | Never (as a chatbot) | Replaced by the proactive message-to-summary flow; open-ended health chat raises the diagnosis risk. |
 | F09 | Catch-up planning | Later | Valuable once there is a plan; we do not prescribe plans yet. The nudge is the light version. |
 | F10 | Reports | Later | The daily summary is the report; weekly export once data exists. |
-| F11 | Wearables | Never (for now) | The target parent will not wear one (D05). |
-| F12 | Subscription tiers | Later | Prove usefulness first. |
+| F11 | Wearables | Never (for now) | Interview 3 stopped wearing his tracker, Interview 9 quit over sync failures, and 8 of 30 reviews cite sync/connection problems (D05). |
+| F12 | Subscription tiers | Later | 13 of 40 sources say paying did not feel worth it; no paywall until the value is proven. |
 | F13 | Free consultation | Never | Needs doctors and compliance; out of scope. |
 | F14 | Community activities | Never | Not core to this customer. |
 | F15 | Emergency: hospital | Never (integration) | We only show "call 108" on red flags. We cannot guarantee a hospital connection. |
 | F16 | Emergency: caretaker or nurse | Later | Natural extension of the child's view. |
 | F17 | Guardian access | Build now (reframed) | This *is* the product: the child's "Today" view. |
 | F18 | Friends groups | Never | Public comparison does not suit a 68-year-old with a health condition. |
-| N01 | Hinglish message-to-structure (voice or text) | Build now | The AI core: replaces the logging form. |
+| N01 | English/Hinglish message-to-structure (voice or text) | Build now | The AI core: replaces the logging form. Daily effort is a top reason to quit (14 of 40); interviews 1, 2 and 10 asked to "just message what I ate". |
 | N02 | Proactive nudge draft | Build now | Time-of-day check-in message for the child to send. |
 | N03 | Red-flag rule layer | Build now | Safety that does not depend on a model. |
+| N04 | English / Hinglish toggle | Build now | Parents and children may prefer different languages; Goa users mix both. |
+| N05 | "Remember regular meals" | Later | Interview 6 asked for it; needs a stored history and tests. |
 
 **The core experience.** *First two minutes:* open the link → Papa's tab: one big box, a mic and example chips → type or say "2 idli aur chai, 30 min walk" → instant "Likh liya ✔" confirmation, or a single question if something is unclear. The child opens "Today": a three-line summary, bars and a suggested nudge. *Normal day:* Papa sends 2-3 lines; the child glances at the summary once in the evening and sends a suggested nudge when something is missing.
 
 Screenshots (English and Hinglish): ![Dad's message](docs/screens/1-papa-message.png) ![Red flag](docs/screens/2-red-flag.png) ![Child's view](docs/screens/3-child-today.png) ![Hinglish](docs/screens/4-hinglish.png)
 
 **My three hardest calls:** *(my draft reasoning; edit it into your own words and check it against your research)*
-1. **Text/voice message vs. food photo first.** Weighed: the photo demo is impressive, but accuracy on thalis is poor and a wrong number on a diabetic's diet erodes trust. Chose: message first, calorie *ranges*, photo later. *Would change my mind if:* testers say typing is the barrier, or a photo test shows ≤25% error on common dishes.
+1. **Text/voice message vs. food photo first.** Weighed: Interview 1 asked for a photo, and it is impressive in a demo, but accuracy on mixed Indian plates is poor and a wrong number on a diabetic's diet erodes trust (15 of 40 sources cite untrustworthy numbers). Chose: message first, calorie *ranges*, photo later. *Would change my mind if:* testers say typing is the barrier, or a photo test shows ≤25% error on common dishes. This is also my least certain call, since 1 of 3 calorie-logging quitters named photos.
 2. **Cut the AI coach chatbot.** Weighed: it is the class's flagship feature. Chose: no open chat; the AI works on input and summaries only, limiting diagnosis risk and wordiness (H4). *Would change my mind if:* users repeatedly ask follow-up questions the app cannot answer.
 3. **Rule-based safety instead of model-based.** Weighed: a model understands more phrasing. Chose: fixed rules that a model can only add to, because a missed red flag costs far more than a false alarm. *Would change my mind if:* testing shows many false alarms that make users ignore alerts.
 
