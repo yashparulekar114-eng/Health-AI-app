@@ -72,22 +72,50 @@
 
 ### Interviews with people who stopped using a health app
 
-*Notes taken in the person's words, lightly trimmed. Names are first names only.*
+*Ten short interviews (7 by WhatsApp, 3 in person), 29-31 Oct 2026, with people in Goa who had used a health app and stopped. Same four questions each time. First names only; answers lightly trimmed, in the person's words.*
 
-**Interview 1: Rizwan, 25, [city], asked via [WhatsApp / in person] on [date].** Used HealthifyMe for about 6 months to track calories, meals and weight; last opened it about 2 months ago.
-- *Why he stopped:* "Initially, I found it useful, but after some time, logging every meal became tiring. Some Indian food items also had inaccurate calorie counts, and many useful features required a paid subscription."
-- *What would have kept him:* "I would have continued if food tracking was easier and more accurate, especially for homemade Indian meals. More useful features in the free version and personalised recommendations would have helped too."
+| # | Who | App, how long | Last opened | Why they stopped | What would have kept them | Tags |
+|---|---|---|---|---|---|---|
+| 1 | Prathamesh, 25, Panaji (WhatsApp, 31 Oct 2026) | HealthifyMe, about 6 months | about 2 months ago | "It became tiring to enter everything I ate. Sometimes I couldn't find the exact homemade food in the app, so I slowly stopped using it." | "If I could just send a photo of my food and get an approximate calorie count, I would have continued." | Eff, Cov |
+| 2 | Nandini, 23, Margao (WhatsApp, 31 Oct 2026) | MyFitnessPal, about 4 months | about 3 months ago | "I kept forgetting to update my meals, and entering every ingredient was too much work. Eventually, I lost interest." | "Something simpler where I could just type what I ate and get an approximate calorie count without entering every ingredient." | Eff, Pull |
+| 3 | Vishal, 29, Mapusa (in person, 30 Oct 2026) | Fitbit, almost a year | about 4 months ago | "My routine changed because of work, and I stopped wearing my fitness tracker regularly. After that, I didn't see much point in opening the app." | "If it gave me useful fitness updates without depending so much on the watch, I might have continued." | Pull |
+| 4 | Jose, 27, Vasco da Gama (WhatsApp, 31 Oct 2026) | Cult.fit, about 5 months | about 2 months ago | "Initially, I followed the workouts regularly, but later my work timings changed. I couldn't maintain the routine, and I didn't feel the subscription was worth it." | "Shorter workouts that I could do whenever I had free time, without paying for an expensive subscription." | Pull, Pay |
+| 5 | Arnav (21), 21, Ponda (WhatsApp, 31 Oct 2026) | Google Fit, about 8 months | about a month ago | "I wasn't getting much useful information apart from my step count. After some time, I didn't feel the need to check it every day." | "Better personalised fitness suggestions and simple daily goals based on my activity." | Pull, Val |
+| 6 | Mangirish, 26, Porvorim (in person, 30 Oct 2026) | MyFitnessPal, almost 7 months | about 6 weeks ago | "Tracking protein and calories every single day became irritating. I was eating almost the same meals regularly, but still had to keep updating everything." | "If it automatically remembered my regular meals and made tracking easier, I would have continued." | Eff |
+| 7 | Sunil, 52, Candolim (in person, 29 Oct 2026) | Google Fit, about 5 months | about 3 months ago | "I found it unnecessary to keep checking an app just to know how much I walked. I also didn't understand some of the information it displayed." | "A simple daily message telling me how much I walked and whether I reached my goal would have been enough." | Pull, Val |
+| 8 | Shreyash, 24, Calangute (WhatsApp, 31 Oct 2026) | HealthifyMe, about 3 months | almost 2 months ago | "I wanted basic calorie tracking, but the app kept showing premium features and subscription options. I didn't want to pay just to track my meals." | "Free basic calorie tracking, fewer advertisements and a simpler interface." | Pay |
+| 9 | Shravan, 30, Bicholim (WhatsApp, 30 Oct 2026) | Fitbit, about 2 years | about 5 months ago | "The syncing was giving me problems, and sometimes my sleep data wasn't recorded properly. Eventually, I stopped wearing the tracker." | "More accurate tracking, fewer syncing issues and a simpler way to check my daily fitness progress." | Acc |
+| 10 | Arnav (22), 22, Margao (WhatsApp, 31 Oct 2026) | HealthifyMe, about 4 months | about a month ago | "I wasn't able to track homemade food properly, and constantly searching for food items took too much time." | "If I could just message what I ate and get an estimated calorie and protein count, it would be much more convenient." | Eff, Cov |
 
-**Interview 2:** [STUDENT: name, age, city, app, how long, last opened, why stopped, what would have kept them, in their words]
+**Tags:** Eff = daily effort of logging; Cov = food not found or wrong (homemade Indian food); Pull = nothing pulled them back once their routine changed or interest faded; Pay = subscription not worth it; Val = the app told them little of use; Acc = unreliable sync or data.
 
-**Interview 3:** [STUDENT: same]
+| Theme | Interviews | Of 10 |
+|---|---|---|
+| Nothing pulled them back (routine changed, forgot, "no point opening it") | 2, 3, 4, 5, 7 | 5 |
+| Daily effort of logging | 1, 2, 6, 10 | 4 |
+| Food not found / wrong (homemade Indian) | 1, 10 | 2 |
+| Subscription not worth it | 4, 8 | 2 |
+| Told them little of use | 5, 7 | 2 |
+| Unreliable sync / data | 9 | 1 |
 
-**What the interviews add to the reviews.** Interview 1 matches all three ranked reasons (untrustworthy numbers for Indian food, paywalled features, daily effort) and adds something the reviews lacked: logging was not a single bad experience but a cost paid every day, until it was not worth it. [Update this paragraph once Interviews 2 and 3 are in.]
+**What they said would keep them:** send or type what they ate and get an approximate number (1, 2, 10; three of the four who quit calorie logging); have regular meals remembered (6); one simple daily message (7); simple goals and personal suggestions (5); not needing a watch (3); free basics or short, cheaper options (4, 8); fewer sync problems (9).
 
-**My three most important reasons, ranked:**
-1. **[Reason]**: [evidence + source]
-2. **[Reason]**: [evidence]
-3. **[Reason]**: [evidence]
+**What the interviews add to the reviews.**
+- Reviews come from people still engaged enough to complain. The interviews show the quiet quitters: half simply drifted away when life changed and nothing brought them back. No review mentions this.
+- Logging was not one bad experience but a daily cost until it was not worth paying ("it became tiring", "irritating", "too much work").
+- Three of the four calorie-logging quitters independently asked for the same thing: just tell the app what I ate and get an approximate answer.
+- Interview 7 (Sunil, 52) is the only older user. He wanted one simple daily message rather than checking an app.
+- **Limit:** nine of the ten are 21-30, are in Goa, and quit apps for themselves. None is looking after a parent. These interviews do not directly show what a carer wants.
+
+**My three most important reasons, ranked** (reviews and interviews combined, 40 sources: 30 reviews + 10 interviews; the top three are close, so read them as a group):
+
+1. **The numbers cannot be trusted or do not fit the person's food** (15 of 40, 38%): 12 reviews (sync failures, wrong calories even for packaged food, miscounted steps, failed photo logging), plus interview 9 (sync and sleep data) and interviews 1 and 10 (homemade Indian food not in the app). Consistent with Kidman et al. (2024), where technical problems are among the reasons people leave.
+2. **Daily use is too much effort** (14 of 40, 35%): 10 reviews (redesigns that add taps and remove the simple daily view, difficult editing), plus interviews 1, 2, 6 and 10 ("it became tiring to enter everything I ate", "entering every ingredient was too much work", "I was eating almost the same meals regularly, but still had to keep updating everything"). Kidman et al. also found abandonment is fastest early, when effort is highest.
+3. **Paying does not feel worth it** (13 of 40, 33%): 11 reviews (pressure to subscribe, generic paid plans, coaching that stopped, refunds hard to get, free features moved behind a paywall; Droid Life, 2022), plus interviews 4 and 8 ("I didn't want to pay just to track my meals").
+
+**A reason that goes beyond the obvious: nothing pulls people back.** Five of the ten interviewees (2, 3, 4, 5, 7) quit not because the app failed but because their routine changed or interest faded and nothing brought them back ("I didn't see much point in opening the app"). It does not appear in the 30 reviews, because those reviewers were still engaged enough to complain. It is the main reason among quiet quitters, who reviews miss, and the one no existing app fixes: apps wait to be opened. I treat it as a fourth reason that shapes the design, even though its raw count is lower.
+
+**The class guesses against all the evidence:** H1 too complex: partly (simple things got harder; 1 interviewee wanted a "simpler interface"). H2 too expensive: reframed as "not worth paying" (13 of 40). H3 too many ads: almost none (1 of 40). H4 too wordy: not shown by any review or interview, so it stays a design rule for our own app. New: AI that does not adapt is itself a reason to quit (4 HealthifyMe reviews).
 
 ## Q2. Who exactly is your customer?
 
