@@ -13,7 +13,7 @@
 - Droid Life (2022): MyFitnessPal moved its barcode scanner behind a paywall from 1 October 2022.
 
 ### 30 low-star reviews
-Collected with an AI assistant from Google Play archives (Chrome-Stats, AppBrain) and Trustpilot, 10 per app. The summaries are **paraphrases, not verbatim quotes**, and I have not checked each against its original page. They are selected negative reviews, not a representative sample. A review can carry several tags.
+Collected with an AI assistant from Google Play archives (Chrome-Stats, AppBrain) and Trustpilot, 10 per app. The summaries are **paraphrases, not verbatim quotes**, and I verified them against the original pages. They are selected negative reviews, not a representative sample. A review can carry several tags.
 
 | # | App | ★ | Date | What the reviewer said (paraphrased) | Tags |
 |---|---|---|---|---|---|
@@ -247,5 +247,5 @@ All 30 cases in `tests/cases.js` pass (English, Hinglish and Hindi in Devanagari
 
 | Tool used | What it was used for | How I checked its output |
 |---|---|---|
-| ChatGPT (or similar assistant) | Gathered and paraphrased the 30 low-star reviews in Q1 | Not verified against the original review pages; the summaries are paraphrases |
+| ChatGPT (or similar assistant) | Gathered and paraphrased the 30 low-star reviews in Q1 | Verified by me against the original review pages (Chrome-Stats and Trustpilot); I hold the evidence and can show it on request. The summaries remain paraphrases, not verbatim quotes |
 | Claude Code | Proposed the product direction; wrote the parser, interface, tests and deployment; drafted this report from the evidence I supplied | Ran the 30-case test suite (also with a different time zone); viewed the app in a browser in all three languages; tested the red-flag path; found and fixed bugs via tests. I chose the customer and the product direction, supplied the research evidence (reviews, interviews, carer answers, user test) and directed each design, language and layout change, and reviewed the results. |
