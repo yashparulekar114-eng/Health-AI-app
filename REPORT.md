@@ -142,9 +142,14 @@
 - *Numbers cannot be trusted* (15 of 40). So Kalji shows calorie **ranges**, asks one question instead of guessing, and never reports "all fine" when data is missing.
 - *Paying does not feel worth it* (13 of 40). No paywall in the prototype; value comes first.
 - *Interview 7 (Sunil, 52)* asked for exactly the output: "a simple daily message telling me how much I walked and whether I reached my goal".
-- **The gap:** none of my ten interviewees was a carer, so Q1 supports the *mechanisms* (low effort, proactive nudges, ranges, simple output) but not directly the *customer's* need. [STUDENT: close this gap with the two questions below and report the answers; if you cannot, leave this sentence in, because it is accurate.]
+- **The gap, partly closed:** none of my ten Q1 interviewees was a carer, so Q1 supports the *mechanisms* (low effort, proactive nudges, ranges, simple output) but not directly the customer's need. Two carers (below) then confirmed the need, but two answers is a small sample.
 
-**Carer interviews** *(to add)*: [STUDENT: ask 2 people who worry about a parent's health: "How do you find out how your parent is doing day to day? What would make that easier?" and "Would you use an app where your parent just sends a WhatsApp-style message and you get a short daily summary? What worries you about it?" Paste their answers, with first name, age and city.]
+**Carer interviews** (asked the two questions: how do you find out how your parent is doing, and would you use a WhatsApp-style message with a daily summary?)
+
+- **Carer 1** [STUDENT: first name, age, city, method, date]: "I would definitely use it. A consolidated summary is much better than pinging them three times a day. My main concern is false alarms: if my parent just forgets to send the update because they are busy or taking a nap, I don't want to panic thinking something is wrong."
+- **Carer 2** [STUDENT: first name, age, city, method, date]: "Yes, the daily summary is perfect. My concern is the adoption curve. If the interface isn't exactly like a normal chat, or if they have to leave their actual WhatsApp to click a web link every day, they will likely stop using it after the first week."
+
+**What they add.** Both want the summary, which supports the need. Their worries are design rules: (1) *a missing update must never look like an emergency*, so when nothing has been logged Kalji now says "No update yet. That is not an alarm", and alerts appear only for warning-sign messages; (2) *it must feel like chat and not demand a new habit*. The prototype is a web page, not inside WhatsApp, so this concern is **not solved**: a WhatsApp-native version is the main risk to adoption (listed in Q4 as "Later").
 
 ## Q3. What does AI do in my app that ordinary software could not?
 
@@ -200,6 +205,7 @@
 | N03 | Red-flag rule layer | Build now | Safety that does not depend on a model. |
 | N04 | English / Hinglish toggle | Build now | Parents and children may prefer different languages; Goa users mix both. |
 | N06 | One-tap quick log ("Took my tablet", "Walked 30 min", "A glass of water", a typical meal, "Missed my tablet") | Build now | My own design decision, not user-test feedback: typing is the main cost of daily use (14 of 40), and an older parent may find it hard. Presets go through the same parser as typed text. To be checked in the user test (Q5). |
+| N07 | Inside WhatsApp (bot) instead of a web page | Later | Carer 2 expects the parent to stop if it is not like normal chat. Needs the WhatsApp Business API, approval and cost; out of scope for a prototype, but the biggest adoption risk. |
 | N05 | "Remember regular meals" | Later | Interview 6 asked for it; needs a stored history and tests. |
 
 **The core experience.** *First two minutes:* open the link → Papa's tab: one big box, a mic and example chips → type or say "2 idli aur chai, 30 min walk" → instant "Likh liya ✔" confirmation, or a single question if something is unclear. The child opens "Today": a three-line summary, bars and a suggested nudge. *Normal day:* Papa sends 2-3 lines; the child glances at the summary once in the evening and sends a suggested nudge when something is missing.
@@ -213,9 +219,20 @@ Screenshots (English and Hinglish): ![Dad's message](docs/screens/1-papa-message
 
 ## Q5. User test
 
-> **TODO (you must do this):** show the live link to at least one adult-child of a parent 60+ (a classmate or family friend who fits). Watch without helping. Record: who, what they did, where they hesitated, what you changed (even a small copy or button fix), with a commit link.
+**Who tested it:** Yoganand, 58, Goa [STUDENT: method (in person or WhatsApp) and date]. He is in the target group's parent generation, not the carer, so this tests the *parent's* side of the app. Tested on the live link before the changes below; one tester only.
 
-**Who tested it, what they did, what confused them, and what I changed:** [ ]
+**What he did:** he ignored the six one-tap buttons completely, tapped into the text box and typed his update by hand.
+
+**What confused him:**
+1. The one-tap buttons did not look like buttons he was meant to press.
+2. After typing, he hesitated about how to submit; the Send button was not prominent enough.
+
+**What I changed (commit "Q5 fixes"):**
+- Send is now a full-width, large button, and pressing Enter sends (Shift+Enter makes a new line).
+- Added a clear instruction above the presets ("Tap a button to log it. No typing needed.") and gave them a filled, raised style so they read as buttons.
+- From the carers' feedback (Q2): with no update yet, the summary now says "No update from Dad yet today. That is not an alarm", instead of the earlier "Nothing to worry about so far", which wrongly implied all was well.
+
+**What this does not show.** One tester ignored the presets, so my own call to build them (Q4, N06) is **not validated**. If a second tester also types, the presets should be cut or redesigned, and typing and voice remain the main path. I have not re-tested the new layout with him. A further limit: the tester used the app on his own; a real parent would send messages over weeks, and I have not tested that.
 
 ## References
 

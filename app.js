@@ -12,7 +12,7 @@
       notice: 'Kalji is not medical advice. It does not diagnose or prescribe. All data here is made up. In an emergency call <b>108</b>.',
       sub: 'Dad sends one message. You get his day in three lines.',
       tabPapa: "Dad's message", tabMe: 'Today (for you)',
-      prompt: 'Tap what you did today. One tap is enough.', prompt2: 'Or type or say anything else:', quickH: 'Quick log',
+      prompt: '👇 Tap a button to log it. No typing needed.', prompt2: 'Or type or say it yourself, then press Send:', quickH: 'Quick log',
       quick: [['💊 Took my tablet','I took my tablet'],['🚶 Walked 30 min','I walked 30 min'],['💧 A glass of water','I drank 1 glass of water'],['🍳 2 idli and tea','2 idli and tea'],['🍚 Roti, dal, sabzi','2 roti, dal and sabzi'],['⚠️ Missed my tablet','I forgot my tablet']],
       ph: 'e.g. 2 idli and tea for breakfast, walked 30 min, took my tablet',
       mic: '🎤 Speak', send: 'Send', today: "Dad's day so far",
@@ -23,6 +23,7 @@
       alert1: 'This could be serious', alert2: 'See a doctor now or <a href="tel:108">call 108</a>. Kalji is not a doctor, so please do not wait on this.',
       q_walk: 'You mentioned a walk. How many minutes?', q_med: 'You mentioned medicine. Did you take it, or miss it?', q_dish: 'You ate something, but I did not recognise the dish. What was it?', q_nothing: 'I could not find food, water, a walk, medicine or a symptom in that message. Please try again.', q_empty: 'Please type something first.',
       micErr: 'The mic is not working. Please type instead.',
+      sNoData: 'No update from Dad yet today. That is not an alarm: he may be busy or resting. An alert appears only when a message mentions a warning sign.',
       nothingYet: 'Nothing logged yet', kcalSoFar: 'About {a}–{b} kcal so far (estimate)', waterOf: '{a} of {b} ml', walkOf: '{a} of {b} min',
       medTaken: 'Taken ✔', medMissed: 'Missed. Please call him.', medNone: 'Not mentioned yet', symNone: 'Nothing reported',
       sRed: 'Dad reported {x}. Call him now; if unreachable, call 108.', sMeals: 'Meals: {n} items logged, looks regular.', sMealsSo: 'Meals: {n} items so far', sNoLunch: ' (nothing since morning)',
@@ -36,7 +37,7 @@
       notice: 'Kalji medical advice nahi hai. Yeh diagnose ya dawai prescribe nahi karta. Yahan ka saara data made-up hai. Emergency me <b>108</b> call karo.',
       sub: 'Papa ek message bhejte hain. Aapko unka din teen lines me mil jata hai.',
       tabPapa: 'Papa ka message', tabMe: 'Aaj (aapke liye)',
-      prompt: 'Aaj kya kiya, bas tap karo. Ek tap kaafi hai.', prompt2: 'Ya kuch aur likho ya bolo:', quickH: 'Jaldi log karo',
+      prompt: '👇 Button dabao, log ho jayega. Likhna nahi padega.', prompt2: 'Ya khud likho ya bolo, phir Bhejo dabao:', quickH: 'Jaldi log karo',
       quick: [['💊 Goli li','goli li'],['🚶 30 min walk','30 min walk kiya'],['💧 Ek glass pani','1 glass pani piya'],['🍳 2 idli aur chai','2 idli aur chai'],['🍚 Roti dal sabzi','2 roti dal sabzi khayi'],['⚠️ Goli bhool gaye','goli bhool gaye']],
       ph: 'jaise: subah 2 idli aur chai, 30 min walk, goli li',
       mic: '🎤 Bolo', send: 'Bhejo', today: 'Papa ka aaj ka din abhi tak',
@@ -47,6 +48,7 @@
       alert1: 'Yeh serious ho sakta hai', alert2: 'Abhi doctor ko dikhao ya <a href="tel:108">108 call karo</a>. Kalji doctor nahi hai, aur is par wait mat karo.',
       q_walk: 'Walk ki baat ki, kitne minute?', q_med: 'Dawai ki baat ki, li ya chhoot gayi?', q_dish: 'Kuch khaya, par mujhe dish samajh nahi aayi. Kya khaya tha?', q_nothing: 'Is message me khana, pani, walk, dawai ya koi takleef nahi mili. Dobara likho.', q_empty: 'Pehle kuch likho.',
       micErr: 'Mic kaam nahi kar raha. Please type kar do.',
+      sNoData: 'Papa ka aaj abhi tak koi update nahi aaya. Yeh alarm nahi hai: ho sakta hai busy ya aaram kar rahe hon. Alert tab aata hai jab message me koi warning sign ho.',
       nothingYet: 'Abhi kuch log nahi hua', kcalSoFar: 'Abhi tak lagbhag {a}–{b} kcal (andaza)', waterOf: '{b} ml me se {a} ml', walkOf: '{b} min me se {a} min',
       medTaken: 'Li ✔', medMissed: 'Chhoot gayi. Please unhe call karo.', medNone: 'Abhi bataya nahi', symNone: 'Koi takleef nahi batayi',
       sRed: 'Papa ne {x} bataya. Abhi call karo; na lage to 108.', sMeals: 'Khana: {n} items, theek lag raha hai.', sMealsSo: 'Khana: abhi tak {n} items', sNoLunch: ' (subah ke baad kuch nahi)',
@@ -169,6 +171,7 @@
     t.symptoms.forEach(function (x) { watch.push(symName(x)); });
     t.meals.forEach(function (m) { if (m.flags.indexOf('high sugar') >= 0) watch.push(tr('wSweet')); });
     s.push(watch.length ? '<span class="warn">' + esc(tr('sWatch', { x: watch.filter(function (v, i, a) { return a.indexOf(v) === i; }).join(', ') })) + '</span>' : tr('sOk'));
+    if (!today().day.entries.length) s = [tr('sNoData')];
     $('summary').innerHTML = s.map(function (x) { return '<li>' + x + '</li>'; }).join('');
 
     // proactive nudge: Kalji decides what to ask next, and drafts the message for the child to send
@@ -192,7 +195,7 @@
   $('tab-papa').onclick = function () { tab('papa'); };
   $('tab-me').onclick = function () { tab('me'); };
   $('send').onclick = function () { send(); };
-  $('msg').addEventListener('keydown', function (e) { if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) send(); });
+  $('msg').addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } });
 
   if (!SR) { $('mic').hidden = true; } else {
     $('mic').onclick = function () { var r = new SR(); r.lang = LANG === 'hi' ? 'hi-IN' : 'en-IN'; r.interimResults = false; r.onresult = function (e) { $('msg').value = (($('msg').value + ' ') + e.results[0][0].transcript).trim(); }; r.onerror = function () { $('reply').innerHTML = '<div class="reply">' + tr('micErr') + '</div>'; }; r.start(); };

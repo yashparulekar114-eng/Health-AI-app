@@ -43,3 +43,8 @@ a{color:var(--teal)}
 .quick{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
 button.q{font-size:1.15rem;padding:1rem .6rem;min-height:64px;background:#fff;color:var(--ink);border:2px solid var(--teal);text-align:center}
 button.q:active{background:#e8f4f2}
+
+button.q{background:#e3f1ee;font-weight:600;box-shadow:0 2px 0 var(--teal)}
+.row{flex-wrap:wrap}
+#send{flex:1 1 100%;order:-1;font-size:1.35rem;padding:1rem}
+#mic{flex:1 1 100%;font-size:1rem;padding:.6rem}
