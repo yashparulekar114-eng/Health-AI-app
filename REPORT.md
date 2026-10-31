@@ -210,7 +210,7 @@ All 30 cases in `tests/cases.js` pass (English, Hinglish and Hindi in Devanagari
 
 ## Q5. User test
 
-**Who tested it:** Yoganand, 58, Goa [fill in: method and date]. He belongs to the parent generation, not the carer group, so this tests the parent's side. One tester, tested on the live link before the changes below.
+**Who tested it:** Yoganand, 58, Goa, in person, 31 October 2026. He belongs to the parent generation, not the carer group, so this tests the parent's side. One tester, tested on the live link before the changes below.
 
 **What he did:** he ignored the six one-tap buttons, tapped into the text box and typed his update.
 
