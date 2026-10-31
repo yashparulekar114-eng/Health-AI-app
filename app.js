@@ -1,6 +1,7 @@
 (function () {
   'use strict';
   var GOALS = { water: 1800, walk: 30, meals: 3, kcal: 1800 };
+  try { var sg = JSON.parse(localStorage.getItem('kalji.goals')); if (sg) ['water', 'walk', 'kcal'].forEach(function (k) { if (typeof sg[k] === 'number') GOALS[k] = sg[k]; }); } catch (e) {}
   var $ = function (id) { return document.getElementById(id); };
   var P = window.KaljiParser;
   var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -18,12 +19,14 @@
       mic: '🎤 Speak', send: 'Send', today: "Dad's day so far",
       hMeals: 'Meals', hWater: 'Water', hWalk: 'Walk', hMed: 'Medicine', hFeel: 'How he feels',
       sample: 'Load a sample day', clear: 'Clear today',
-      foot: 'Demo profile (made up): Dad, 68, type 2 diabetes and high blood pressure. Goals: 1.8 L water, 30 min walk, 3 meals, morning medicine. Calories are ranges, not exact. See <a href="REPORT.md">the report</a>.',
+      foot: 'Demo profile (made up): Dad, 68, 72 kg, type 2 diabetes and high blood pressure. Goals: 1.8 L water, 30 min walk, 3 meals, morning medicine. Calories are ranges, not exact. See <a href="REPORT.md">the report</a>.',
       noted: 'Noted ✔ ', fFood: 'food', fWater: 'water', fWalk: 'walk', fMed: 'medicine', taken: 'taken', missed: 'missed',
       uMl: 'ml', uMin: 'min', uKcal: 'kcal',
       gMorning: 'Good morning', gAfternoon: 'Good afternoon', gEvening: 'Good evening',
       stOkT: 'On track', stOkS: "Nothing worrying in Dad's updates so far.", stWatchT: 'Keep an eye', stWatchS: 'Something deserves a gentle check-in call.', stRedT: 'Call Dad now', stRedS: 'A warning sign was reported. If you cannot reach him, call 108.', stNoneT: 'No update yet', stNoneS: 'Not an alarm. Dad may be busy or resting.', stNoneBtn: 'Open Log',
       recentH: 'Logged today', recentNone: 'Nothing yet. Tap a button above.', undo: 'Undo', undone: 'Removed the last entry.',
+      energyH: 'Energy (estimate)', eEaten: 'Eaten', eBurned: 'Burned', eNet: 'Net', eNote: 'Burned is estimated from walking time for a 72 kg person (a made-up demo weight), so it is approximate.', burnTxt: 'about {k} kcal burned',
+      goalsH: "Today's goals", goalsEdit: 'Edit', goalsSave: 'Save', goalsCancel: 'Cancel', gWater: 'Water', gWalk: 'Walk', gMeals: 'Meals', gMed: 'Medicine', gKcal: 'Calories (limit)', gItems: 'items', gPending: 'Not yet', gOver: 'over the limit', gfWater: 'Water goal (ml)', gfWalk: 'Walk goal (min)', gfKcal: 'Calorie limit (kcal)', gHint: 'Set targets together with a doctor. Kalji does not prescribe targets.',
       alert1: 'This could be serious', alert2: 'See a doctor now or <a href="tel:108">call 108</a>. Kalji is not a doctor, so please do not wait on this.',
       q_walk: 'You mentioned a walk. How many minutes?', q_med: 'You mentioned medicine. Did you take it, or miss it?', q_dish: 'You ate something, but I did not recognise the dish. What was it?', q_nothing: 'I could not find food, water, a walk, medicine or a symptom in that message. Please try again.', q_empty: 'Please type something first.',
       micErr: 'The mic is not working. Please type instead.',
@@ -47,12 +50,14 @@
       mic: '🎤 Bolo', send: 'Bhejo', today: 'Papa ka aaj ka din abhi tak',
       hMeals: 'Khana', hWater: 'Pani', hWalk: 'Walk', hMed: 'Dawai', hFeel: 'Tabiyat',
       sample: 'Sample din load karo', clear: 'Aaj ka clear karo',
-      foot: 'Demo profile (made-up): Papa, 68, type 2 diabetes aur high BP. Goals: 1.8 L pani, 30 min walk, 3 meals, subah ki dawai. Calories ek range hai, exact nahi. Dekho <a href="REPORT.md">report</a>.',
+      foot: 'Demo profile (made-up): Papa, 68, 72 kg, type 2 diabetes aur high BP. Goals: 1.8 L pani, 30 min walk, 3 meals, subah ki dawai. Calories ek range hai, exact nahi. Dekho <a href="REPORT.md">report</a>.',
       noted: 'Likh liya ✔ ', fFood: 'khana', fWater: 'pani', fWalk: 'walk', fMed: 'goli', taken: 'li', missed: 'chhoot gayi',
       uMl: 'ml', uMin: 'min', uKcal: 'kcal',
       gMorning: 'Suprabhat', gAfternoon: 'Namaste', gEvening: 'Shubh sandhya',
       stOkT: 'Sab theek', stOkS: 'Papa ke updates me abhi tak koi chinta ki baat nahi.', stWatchT: 'Dhyan rakho', stWatchS: 'Ek chhota sa check-in call banta hai.', stRedT: 'Papa ko abhi call karo', stRedS: 'Warning sign bataya gaya hai. Na lage to 108 call karo.', stNoneT: 'Abhi update nahi', stNoneS: 'Alarm nahi hai. Papa busy ya aaram kar rahe honge.', stNoneBtn: 'Log kholo',
       recentH: 'Aaj log hua', recentNone: 'Abhi kuch nahi. Upar ka button dabao.', undo: 'Undo', undone: 'Pichhli entry hata di.',
+      energyH: 'Energy (andaza)', eEaten: 'Khaya', eBurned: 'Jala', eNet: 'Net', eNote: 'Jali hui calories walk ke time se, 72 kg ke vyakti (made-up demo weight) ke hisab se andaza hai, exact nahi.', burnTxt: 'lagbhag {k} kcal jali',
+      goalsH: 'Aaj ke goals', goalsEdit: 'Badlo', goalsSave: 'Save', goalsCancel: 'Cancel', gWater: 'Pani', gWalk: 'Walk', gMeals: 'Khana', gMed: 'Dawai', gKcal: 'Calories (limit)', gItems: 'items', gPending: 'Abhi nahi', gOver: 'limit se zyada', gfWater: 'Pani goal (ml)', gfWalk: 'Walk goal (min)', gfKcal: 'Calorie limit (kcal)', gHint: 'Goals doctor ke saath tay karo. Kalji goals prescribe nahi karta.',
       alert1: 'Yeh serious ho sakta hai', alert2: 'Abhi doctor ko dikhao ya <a href="tel:108">108 call karo</a>. Kalji doctor nahi hai, aur is par wait mat karo.',
       q_walk: 'Walk ki baat ki, kitne minute?', q_med: 'Dawai ki baat ki, li ya chhoot gayi?', q_dish: 'Kuch khaya, par mujhe dish samajh nahi aayi. Kya khaya tha?', q_nothing: 'Is message me khana, pani, walk, dawai ya koi takleef nahi mili. Dobara likho.', q_empty: 'Pehle kuch likho.',
       micErr: 'Mic kaam nahi kar raha. Please type kar do.',
@@ -76,12 +81,14 @@
       mic: '🎤 बोलिए', send: 'भेजें', today: 'पापा का आज का दिन अब तक',
       hMeals: 'खाना', hWater: 'पानी', hWalk: 'टहलना', hMed: 'दवाई', hFeel: 'तबीयत',
       sample: 'नमूना दिन लोड करें', clear: 'आज का साफ़ करें',
-      foot: 'डेमो प्रोफ़ाइल (काल्पनिक): पापा, 68 वर्ष, टाइप 2 मधुमेह और उच्च रक्तचाप। लक्ष्य: 1.8 लीटर पानी, 30 मिनट टहलना, 3 बार खाना, सुबह की दवाई। कैलोरी एक अनुमान है, सटीक नहीं। देखें <a href="REPORT.md">रिपोर्ट</a>।',
+      foot: 'डेमो प्रोफ़ाइल (काल्पनिक): पापा, 68 वर्ष, 72 किलो, टाइप 2 मधुमेह और उच्च रक्तचाप। लक्ष्य: 1.8 लीटर पानी, 30 मिनट टहलना, 3 बार खाना, सुबह की दवाई। कैलोरी एक अनुमान है, सटीक नहीं। देखें <a href="REPORT.md">रिपोर्ट</a>।',
       noted: 'लिख लिया ✔ ', fFood: 'खाना', fWater: 'पानी', fWalk: 'टहलना', fMed: 'दवाई', taken: 'ली', missed: 'छूट गई',
       uMl: 'मिली', uMin: 'मिनट', uKcal: 'कैलोरी',
       gMorning: 'सुप्रभात', gAfternoon: 'नमस्ते', gEvening: 'शुभ संध्या',
       stOkT: 'सब ठीक', stOkS: 'पापा के अपडेट में अब तक कोई चिंता की बात नहीं।', stWatchT: 'ध्यान रखें', stWatchS: 'एक छोटा सा हालचाल पूछने वाला कॉल बनता है।', stRedT: 'पापा को अभी कॉल करें', stRedS: 'खतरे का संकेत बताया गया है। न लगे तो 108 पर कॉल करें।', stNoneT: 'अभी कोई अपडेट नहीं', stNoneS: 'यह खतरे की घंटी नहीं है। पापा व्यस्त या आराम में होंगे।', stNoneBtn: 'दर्ज करें खोलें',
       recentH: 'आज दर्ज हुआ', recentNone: 'अभी कुछ नहीं। ऊपर का बटन दबाइए।', undo: 'वापस लें', undone: 'पिछली प्रविष्टि हटा दी।',
+      energyH: 'ऊर्जा (अनुमान)', eEaten: 'खाया', eBurned: 'खर्च', eNet: 'शुद्ध', eNote: 'खर्च हुई कैलोरी टहलने के समय से 72 किलो के व्यक्ति (काल्पनिक डेमो वज़न) के हिसाब से अनुमान है, सटीक नहीं।', burnTxt: 'लगभग {k} कैलोरी खर्च',
+      goalsH: 'आज के लक्ष्य', goalsEdit: 'बदलें', goalsSave: 'सहेजें', goalsCancel: 'रद्द करें', gWater: 'पानी', gWalk: 'टहलना', gMeals: 'खाना', gMed: 'दवाई', gKcal: 'कैलोरी (सीमा)', gItems: 'चीज़ें', gPending: 'अभी नहीं', gOver: 'सीमा से ज़्यादा', gfWater: 'पानी का लक्ष्य (मिली)', gfWalk: 'टहलने का लक्ष्य (मिनट)', gfKcal: 'कैलोरी सीमा', gHint: 'लक्ष्य डॉक्टर के साथ तय करें। कळजी लक्ष्य नहीं बताता।',
       alert1: 'यह गंभीर हो सकता है', alert2: 'अभी डॉक्टर को दिखाइए या <a href="tel:108">108 पर कॉल करें</a>। कळजी डॉक्टर नहीं है, इसलिए इंतज़ार न करें।',
       q_walk: 'टहलने की बात कही, कितने मिनट?', q_med: 'दवाई की बात कही, ली या छूट गई?', q_dish: 'कुछ खाया, पर मैं व्यंजन समझ नहीं पाया। क्या खाया था?', q_nothing: 'इस संदेश में खाना, पानी, टहलना, दवाई या कोई तकलीफ़ नहीं मिली। फिर से लिखिए।', q_empty: 'पहले कुछ लिखिए।',
       micErr: 'माइक काम नहीं कर रहा। कृपया लिखकर भेजें।',
@@ -107,13 +114,15 @@
   };
   function nm(kind, key) { if (LANG === 'en' || !NM[kind][key]) return key; return NM[kind][key][LANG === 'hg' ? 0 : 1]; }
   function symName(x) { return nm('sym', x); }
+  var KI = window.KaljiIcons, TILE_ICONS = ['pill', 'walk', 'drop', 'meal', 'plate', 'alert'];
   function applyLang() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-icon]'), function (el) { el.innerHTML = KI.svg(el.getAttribute('data-icon')); });
     document.documentElement.lang = LANG === 'hi' ? 'hi' : LANG === 'hg' ? 'hi-Latn' : 'en';
     Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'), function (el) { var v = tr(el.getAttribute('data-i18n')); if (el.hasAttribute('data-html')) el.innerHTML = v; else el.textContent = v; });
     Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-ph]'), function (el) { el.placeholder = tr(el.getAttribute('data-i18n-ph')); });
     ['en', 'hg', 'hi'].forEach(function (l) { $('lang-' + l).setAttribute('aria-pressed', LANG === l); });
     var qk = $('quick'); qk.innerHTML = '';
-    tr('quick').forEach(function (x) { var b = document.createElement('button'); b.type = 'button'; var sp = x[0].indexOf(' '); b.className = 'tile' + (x[0].indexOf('⚠') === 0 ? ' warn' : ''); b.innerHTML = '<span class="ico">' + x[0].slice(0, sp) + '</span><span>' + esc(x[0].slice(sp + 1)) + '</span>'; b.onclick = function () { send(x[1]); }; qk.appendChild(b); });
+    tr('quick').forEach(function (x) { var b = document.createElement('button'); b.type = 'button'; var sp = x[0].indexOf(' '); b.className = 'tile' + (x[0].indexOf('⚠') === 0 ? ' warn' : ''); b.innerHTML = '<span class="ico">' + KI.svg(TILE_ICONS[tr('quick').indexOf(x)]) + '</span><span>' + esc(x[0].slice(sp + 1)) + '</span>'; b.onclick = function () { send(x[1]); }; qk.appendChild(b); });
     var c = document.querySelector('.chips'); c.innerHTML = '';
     tr('chips').forEach(function (x) { var b = document.createElement('button'); b.type = 'button'; b.textContent = x; b.onclick = function () { $('msg').value = x; $('msg').focus(); }; c.appendChild(b); });
     setMode(); render();
@@ -178,7 +187,7 @@
     var bits = [];
     if (r.meals.length) bits.push(tr('fFood') + ': ' + r.meals.map(function (m) { return esc(nm('food', m.name)); }).join(', '));
     if (r.water_ml) bits.push(tr('fWater') + ': ' + r.water_ml + ' ' + tr('uMl'));
-    if (r.walk_min) bits.push(tr('fWalk') + ': ' + r.walk_min + ' ' + tr('uMin'));
+    if (r.walk_min) bits.push(tr('fWalk') + ': ' + r.walk_min + ' ' + tr('uMin') + ' (' + tr('burnTxt', { k: P.burn(r.walk_min) }) + ')');
     if (r.meds.length && r.meds[0].status !== 'unclear') bits.push(tr('fMed') + ': ' + tr(r.meds[0].status === 'taken' ? 'taken' : 'missed'));
     if (r.symptoms.length) bits.push(esc(r.symptoms.map(symName).join(', ')));
     return bits;
@@ -234,6 +243,19 @@
     s = s.filter(Boolean);
     $('summary').innerHTML = s.map(function (x) { return '<li>' + x + '</li>'; }).join('');
 
+    // energy card (eaten / burned / net) and goals
+    var burned = P.burn(t.walk);
+    $('e-eaten').textContent = mid; $('e-burn').textContent = burned; $('e-net').textContent = mid - burned;
+    var medTxt = t.meds === 'taken' ? tr('medTaken') : t.meds === 'missed' ? tr('missed') : tr('gPending');
+    var rowsG = [
+      { ic: 'drop', l: tr('gWater'), txt: t.water + ' / ' + GOALS.water + ' ' + tr('uMl'), pct: t.water / GOALS.water * 100, done: t.water >= GOALS.water },
+      { ic: 'walk', l: tr('gWalk'), txt: t.walk + ' / ' + GOALS.walk + ' ' + tr('uMin'), pct: t.walk / GOALS.walk * 100, done: t.walk >= GOALS.walk },
+      { ic: 'plate', l: tr('gMeals'), txt: t.meals.length + ' / ' + GOALS.meals + ' ' + tr('gItems'), pct: t.meals.length / GOALS.meals * 100, done: t.meals.length >= GOALS.meals },
+      { ic: 'pill', l: tr('gMed'), txt: medTxt, pct: t.meds === 'taken' ? 100 : 0, done: t.meds === 'taken' },
+      { ic: 'flame', l: tr('gKcal'), txt: mid + ' / ' + GOALS.kcal + ' ' + tr('uKcal'), pct: mid / GOALS.kcal * 100, done: t.meals.length > 0 && mid <= GOALS.kcal, over: mid > GOALS.kcal }
+    ];
+    $('goal-list').innerHTML = rowsG.map(function (g) { return '<li><span class="gi">' + KI.svg(g.ic) + '</span><span class="gl">' + esc(g.l) + '<small>' + esc(g.txt) + (g.over ? ' · ' + esc(tr('gOver')) : '') + '</small></span><span class="gd' + (g.done ? ' on' : '') + '">' + KI.svg('check') + '</span><div class="gb bar' + (g.over ? ' over' : '') + '"><i style="width:' + Math.min(100, Math.round(g.pct)) + '%"></i></div></li>'; }).join('');
+
     // traffic-light status for the carer
     var st = !today().day.entries.length ? 'none' : t.red ? 'red' : watch.length ? 'watch' : 'ok';
     var ic = { ok: '✓', watch: '!', red: '☎', none: '…' }[st];
@@ -272,6 +294,16 @@
   $('tab-me').onclick = function () { tab('me'); };
   $('send').onclick = function () { send(); };
   $('undo').onclick = undo;
+  function fillGoalForm() { $('g-water').value = GOALS.water; $('g-walk').value = GOALS.walk; $('g-kcal').value = GOALS.kcal; }
+  $('goal-edit').onclick = function () { var f = $('goal-form'); f.hidden = !f.hidden; if (!f.hidden) fillGoalForm(); };
+  $('goal-cancel').onclick = function () { $('goal-form').hidden = true; };
+  function clampInt(v, lo, hi, d) { v = parseInt(v, 10); return isNaN(v) ? d : Math.min(hi, Math.max(lo, v)); }
+  $('goal-form').onsubmit = function (e) {
+    e.preventDefault();
+    GOALS.water = clampInt($('g-water').value, 500, 4000, GOALS.water); GOALS.walk = clampInt($('g-walk').value, 10, 120, GOALS.walk); GOALS.kcal = clampInt($('g-kcal').value, 1000, 3000, GOALS.kcal);
+    try { localStorage.setItem('kalji.goals', JSON.stringify({ water: GOALS.water, walk: GOALS.walk, kcal: GOALS.kcal })); } catch (er) {}
+    $('goal-form').hidden = true; render();
+  };
   $('msg').addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } });
 
   if (!SR) { $('mic').hidden = true; } else {

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#087F8C">
 <title>Kalji: a daily health check-in for your parent</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,6 +19,7 @@
   <main>
   <section id="view-papa">
     <div class="hero small">
+      <svg class="art" viewBox="0 0 140 110" aria-hidden="true"><circle cx="96" cy="52" r="46" fill="#fff" opacity=".10"/><circle cx="96" cy="52" r="30" fill="#fff" opacity=".12"/><path d="M96 78c-16-6-26-18-24-34 12 0 22 8 24 34z" fill="#DDF4EC"/><path d="M96 78c14-4 24-16 24-30-12 2-22 12-24 30z" fill="#DCEFFA"/><path d="M96 80V44" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M40 30a9 9 0 0 0-13 0l-1 1-1-1a9 9 0 0 0-13 13l14 14 14-14a9 9 0 0 0 0-13z" transform="translate(6 6)" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" opacity=".85"/></svg>
       <p class="hi" data-i18n="sub"></p>
       <p class="big" data-i18n="prompt"></p>
     </div>
@@ -46,14 +48,26 @@
           <div class="ring-in"><b id="ring-num">0</b><span id="ring-sub"></span></div>
         </div>
         <div class="stats">
-          <div class="stat"><span class="ic">💧</span><div><b id="st-water">0%</b><small data-i18n="hWater"></small></div></div>
-          <div class="stat"><span class="ic">🚶</span><div><b id="st-walk">0%</b><small data-i18n="hWalk"></small></div></div>
-          <div class="stat"><span class="ic">💊</span><div><b id="st-med">-</b><small data-i18n="hMed"></small></div></div>
+          <div class="stat"><span class="ic" data-icon="drop"></span><div><b id="st-water">0%</b><small data-i18n="hWater"></small></div></div>
+          <div class="stat"><span class="ic" data-icon="walk"></span><div><b id="st-walk">0%</b><small data-i18n="hWalk"></small></div></div>
+          <div class="stat"><span class="ic" data-icon="pill"></span><div><b id="st-med">-</b><small data-i18n="hMed"></small></div></div>
         </div>
       </div>
     </div>
 
     <div id="status" class="status" role="status"></div>
+    <div class="card energy"><h3 data-i18n="energyH"></h3>
+      <div class="e3"><div><b id="e-eaten">0</b><small data-i18n="eEaten"></small></div><div><b id="e-burn">0</b><small data-i18n="eBurned"></small></div><div><b id="e-net">0</b><small data-i18n="eNet"></small></div></div>
+      <p class="muted" data-i18n="eNote"></p></div>
+    <div class="card goals"><div class="rh"><h3 data-i18n="goalsH"></h3><button id="goal-edit" class="undo" type="button" data-i18n="goalsEdit"></button></div>
+      <ul id="goal-list" class="goal-list"></ul>
+      <form id="goal-form" hidden>
+        <label>💧 <span data-i18n="gfWater"></span><input id="g-water" type="number" inputmode="numeric" min="500" max="4000" step="100"></label>
+        <label>🚶 <span data-i18n="gfWalk"></span><input id="g-walk" type="number" inputmode="numeric" min="10" max="120" step="5"></label>
+        <label>🔥 <span data-i18n="gfKcal"></span><input id="g-kcal" type="number" inputmode="numeric" min="1000" max="3000" step="50"></label>
+        <p class="muted" data-i18n="gHint"></p>
+        <div class="row"><button type="button" id="goal-cancel" class="ghost" data-i18n="goalsCancel"></button><button type="submit" class="send" data-i18n="goalsSave"></button></div>
+      </form></div>
     <div class="card summary"><ul id="summary"></ul></div>
     <div class="card nudge" id="nudge"></div>
 
@@ -80,6 +94,7 @@
   </nav>
 </div>
 <script src="parser.js"></script>
+<script src="icons.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

@@ -140,3 +140,32 @@ button.tile.warn .ico{background:#FBE4E4}
 button:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #087F8C;outline-offset:2px}
 textarea:focus{border-color:var(--g)}
 a{color:#066672}
+
+/* ---- icons, illustration, energy, goals ---- */
+.svgi{width:26px;height:26px}
+.stat .ic .svgi{width:22px;height:22px;color:#fff}
+button.tile .ico .svgi{width:28px;height:28px;color:#087F8C}
+button.tile.warn .ico .svgi{color:#B03F3F}
+button.tile .ico{font-size:0}
+.hero.small{position:relative;overflow:hidden;padding-right:7.5rem}
+.hero .art{position:absolute;right:-6px;top:6px;width:150px;height:118px;pointer-events:none}
+.energy .e3{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;text-align:center;margin:.2rem 0 .4rem}
+.energy .e3 div{background:var(--gl);border-radius:14px;padding:.6rem .2rem}
+.energy .e3 div:nth-child(2){background:var(--sky)}
+.energy b{display:block;font-size:1.5rem;line-height:1.1;color:var(--ink)}
+.energy small{color:var(--mut);font-size:.78rem}
+.goals .rh{display:flex;align-items:center;justify-content:space-between;margin-bottom:.3rem}.goals .rh h3{margin:0}
+.goal-list{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
+.goal-list li{display:grid;grid-template-columns:38px 1fr auto;gap:.2rem .7rem;align-items:center}
+.goal-list .gi{width:38px;height:38px;border-radius:50%;background:var(--gl);color:#087F8C;display:flex;align-items:center;justify-content:center}
+.goal-list .gi .svgi{width:20px;height:20px}
+.goal-list .gl{font-weight:600}.goal-list .gl small{display:block;font-weight:400;color:var(--mut);font-size:.82rem}
+.goal-list .gd{width:28px;height:28px;border-radius:50%;background:#E3EAE8;color:#fff;display:flex;align-items:center;justify-content:center}
+.goal-list .gd .svgi{width:16px;height:16px}
+.goal-list .gd.on{background:var(--ok)}
+.goal-list .gb{grid-column:2 / 4}
+.goal-list .bar.over i{background:var(--amb)}
+#goal-form label{display:flex;align-items:center;gap:.5rem;margin:.6rem 0;font-weight:600}
+#goal-form label span{flex:1;font-weight:500}
+#goal-form input{width:110px;font-size:1.05rem;padding:.55rem .6rem;border:2px solid var(--line);border-radius:12px;font-family:inherit;text-align:right}
+#goal-form .row .ghost,#goal-form .row .send{min-height:48px;font-size:1rem}

@@ -17,5 +17,11 @@ for (const c of cases) {
   console.log((errs.length ? 'FAIL ' : 'PASS ') + c.id + '  ' + JSON.stringify(c.in) + (errs.length ? '  -> ' + errs.join('; ') : ''));
   if (!errs.length) pass++;
 }
-console.log(pass + '/' + cases.length + ' passed');
-process.exit(pass === cases.length ? 0 : 1);
+const { burn } = require('../parser.js');
+const burnChecks = [[0, 0], [30, 126], [60, 252], [15, 63]];
+let burnOk = 0;
+for (const [m, e] of burnChecks) { const g = burn(m); console.log((g === e ? 'PASS' : 'FAIL') + ' burn(' + m + ') = ' + g + ' (expected ' + e + ')'); if (g === e) burnOk++; }
+pass += burnOk;
+const total = cases.length + burnChecks.length;
+console.log(pass + '/' + total + ' passed');
+process.exit(pass === total ? 0 : 1);

@@ -165,6 +165,10 @@
     return out;
   }
 
-  var api = { parse: parse, RED: RED };
+  // Calories burned walking: MET x weight(kg) x hours. Weight is a made-up demo value; result is an estimate only.
+  var WEIGHT_KG = 72, MET_WALK = 3.5;
+  function burn(min) { return Math.max(0, Math.round(MET_WALK * WEIGHT_KG * ((min || 0) / 60))); }
+
+  var api = { parse: parse, RED: RED, burn: burn };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.KaljiParser = api;
 })(typeof self !== 'undefined' ? self : this);

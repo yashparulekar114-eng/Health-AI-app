@@ -173,7 +173,7 @@ All 30 cases in `tests/cases.js` pass (English, Hinglish and Hindi in Devanagari
 |---|---|---|---|
 | F01 | Food photo to calories | Later | Interview 1 asked for photo logging, but a single photo is unreliable for mixed home-cooked Indian plates (D06, D11; interviews 1 and 10 found homemade food missing). Typed or spoken messages work now, with ranges. |
 | F02 | Profile and goals | Build now (minimal) | Only fixed goals for one made-up parent. No BMI, no reference image. |
-| F03 | Activity tracking | Build now (minimal) | Walk minutes from the message. Interviews 3 and 9 quit because trackers had to be worn and synced; Interview 7 wanted only "how much I walked". |
+| F03 | Activity tracking | Build now (minimal) | Walk minutes from the message, plus an estimated calories-burned figure (3.5 MET × a made-up 72 kg, labelled approximate). Interviews 3 and 9 quit because trackers had to be worn and synced; Interview 7 wanted only "how much I walked". |
 | F04 | Diet plan | Never | Prescribing a calorie-deficit plan for a diabetic parent is medical territory. |
 | F05 | Progress tracker | Build now | The daily summary and bars. Fasting tracker and product upsell: Never (conflict of interest; supplements). |
 | F06 | Sleep tracking | Later | Needs a device or reliable self-report; not core. |
@@ -193,15 +193,16 @@ All 30 cases in `tests/cases.js` pass (English, Hinglish and Hindi in Devanagari
 | N02 | Proactive nudge draft | Build now | Time-of-day check-in message for the child to send. |
 | N03 | Red-flag rule layer | Build now | Safety that does not depend on a model. |
 | N04 | Language switch: English / Hinglish / Hindi | Build now | Parents and children may prefer different languages; Goa users mix them. Every on-screen string, including food names and warnings, follows the chosen language. Marathi and Konkani are not covered (Later). |
+| N08 | Editable daily goals (water, walk, calorie limit) with progress | Build now | Interview 5 asked for "simple daily goals". Targets are the user's to set, with a note to agree them with a doctor; Kalji does not prescribe them. |
 | N05 | "Remember regular meals" | Later | Interview 6 asked for it; needs a stored history and tests. |
 | N06 | One-tap quick log ("Took my tablet", "Walked 30 min", "A glass of water", a typical meal, "Missed my tablet") | Build now | My own design decision, not user-test feedback: typing is the main cost of daily use (14 of 40), and an older parent may find it hard. Presets go through the same parser as typed text. To be checked in the user test (Q5). |
 | N07 | Inside WhatsApp (bot) instead of a web page | Later | Carer 2 expects the parent to stop if it is not like normal chat. Needs the WhatsApp Business API, approval and cost; out of scope for a prototype, but the biggest adoption risk. |
 
-**Design.** The interface follows familiar health-app patterns: a calorie ring, large tile buttons, a bottom tab bar and a traffic-light status card (On track / Keep an eye / Call now / No update yet) so a carer can read the day at a glance. A confirmation appears under the header after every action, the last entry can be undone and a "Logged today" list shows what was recorded. The whole interface follows the chosen language. Colours are a calm teal, mint and off-white palette with no gradients; I checked that all text meets WCAG AA contrast (4.5:1), and every button is at least 40 px tall.
+**Design.** The interface follows familiar health-app patterns: a calorie ring, large tile buttons, a bottom tab bar and a traffic-light status card (On track / Keep an eye / Call now / No update yet) so a carer can read the day at a glance. A confirmation appears under the header after every action, the last entry can be undone a "Logged today" list shows what was recorded, and the Today screen adds an Eaten / Burned / Net energy card and a goals card with progress. Icons and the header illustration are original drawings, so no copyrighted images are used. The whole interface follows the chosen language. Colours are a calm teal, mint and off-white palette with no gradients; I checked that all text meets WCAG AA contrast (4.5:1), and every button is at least 40 px tall.
 
 **The core experience.** *First two minutes:* open the link, see six large tiles (tablet, walk, water, a meal, missed tablet), tap one or type or say a message, and get a confirmation ("Noted ✔ medicine: taken") or one question if something is unclear. *A normal day:* the parent sends two or three updates; the carer opens Today once, reads the status and three-line summary, and sends the suggested nudge if something is missing.
 
-![Log screen](docs/screens/1-papa-message.png) ![Red flag](docs/screens/2-red-flag.png) ![Carer view](docs/screens/3-child-today.png) ![Hindi](docs/screens/5-hindi.png)
+![Log screen](docs/screens/1-papa-message.png) ![Red flag](docs/screens/2-red-flag.png) ![Carer view](docs/screens/3-child-today.png) ![Goals](docs/screens/7-goals.png) ![Hindi](docs/screens/5-hindi.png)
 
 **My three hardest calls**
 1. **Typed or spoken message first, not food photo.** Interview 1 asked for photos, and they demo well, but a photo of a mixed home-cooked plate is unreliable and a wrong number on a diabetic's diet erodes trust (15 of 40 sources cite untrustworthy numbers). I chose messages and calorie ranges. *I would change my mind if* testers say typing is the barrier, or a photo test shows 25% error or less on common dishes. This is my least certain call: one of the three who asked for easier input named photos.
