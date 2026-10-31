@@ -169,3 +169,11 @@ button.tile .ico{font-size:0}
 #goal-form label span{flex:1;font-weight:500}
 #goal-form input{width:110px;font-size:1.05rem;padding:.55rem .6rem;border:2px solid var(--line);border-radius:12px;font-family:inherit;text-align:right}
 #goal-form .row .ghost,#goal-form .row .send{min-height:48px;font-size:1rem}
+
+/* ---- colour illustrations on tiles ---- */
+button.tile .ico{width:66px;height:66px;border-radius:20px;font-size:0}
+button.tile .ico .art64{width:56px;height:56px}
+button.tile .ico.t0{background:#DDF4EC}button.tile .ico.t1{background:#DCEFFA}button.tile .ico.t2{background:#DCEFFA}
+button.tile .ico.t3{background:#FFF4DC}button.tile .ico.t4{background:#FFF4DC}button.tile .ico.t5{background:#FBE4E4}
+button.tile{min-height:116px}
+.hero .art{width:160px;height:126px;right:-8px;top:2px}

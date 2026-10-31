@@ -122,7 +122,7 @@
     Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-ph]'), function (el) { el.placeholder = tr(el.getAttribute('data-i18n-ph')); });
     ['en', 'hg', 'hi'].forEach(function (l) { $('lang-' + l).setAttribute('aria-pressed', LANG === l); });
     var qk = $('quick'); qk.innerHTML = '';
-    tr('quick').forEach(function (x) { var b = document.createElement('button'); b.type = 'button'; var sp = x[0].indexOf(' '); b.className = 'tile' + (x[0].indexOf('⚠') === 0 ? ' warn' : ''); b.innerHTML = '<span class="ico">' + KI.svg(TILE_ICONS[tr('quick').indexOf(x)]) + '</span><span>' + esc(x[0].slice(sp + 1)) + '</span>'; b.onclick = function () { send(x[1]); }; qk.appendChild(b); });
+    tr('quick').forEach(function (x) { var b = document.createElement('button'); b.type = 'button'; var sp = x[0].indexOf(' '); b.className = 'tile' + (x[0].indexOf('⚠') === 0 ? ' warn' : ''); b.innerHTML = '<span class="ico t' + tr('quick').indexOf(x) + '">' + KI.art(TILE_ICONS[tr('quick').indexOf(x)]) + '</span><span>' + esc(x[0].slice(sp + 1)) + '</span>'; b.onclick = function () { send(x[1]); }; qk.appendChild(b); });
     var c = document.querySelector('.chips'); c.innerHTML = '';
     tr('chips').forEach(function (x) { var b = document.createElement('button'); b.type = 'button'; b.textContent = x; b.onclick = function () { $('msg').value = x; $('msg').focus(); }; c.appendChild(b); });
     setMode(); render();
